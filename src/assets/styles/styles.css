@@ -1,0 +1,43 @@
+.amplify-input{
+  @apply tw-rounded tw-h-10 tw-border tw-border-solid tw-px-2 tw-py-0 tw-text-base tw-leading-4 tw-w-full tw-border-k-gray-500 tw-text-left !important
+}
+
+.amplify-input:focus{
+  @apply tw-border-k-purple-400 tw-border-2 !important
+}
+
+.amplify-input:focus{
+  box-shadow: none !important
+}
+
+.amplify-input:hover{
+  @apply tw-shadow !important
+}
+
+.amplify-field__show-password{
+  @apply tw-border tw-border-solid tw-border-k-gray-500 !important
+}
+
+.amplify-field__show-password:hover{
+  @apply tw-bg-k-purple-100 tw-border-k-purple-400 tw-shadow !important
+}
+
+input.amplify-input[type="password"]{
+  @apply tw-border-r-0 tw-rounded-r-none !important
+}
+
+.amplify-tabs {
+  display: none !important;
+}
+
+.amplify-button--primary{
+  @apply tw-font-semibold tw-rounded-full tw-uppercase tw-bg-k-dark-blue !important
+}
+
+.amplify-button--primary:hover{
+  @apply tw-bg-k-true-blue !important
+}
+
+div[data-amplify-router]{
+  @apply tw-rounded-lg tw-shadow-md tw-border-k-gray-500 !important
+}
