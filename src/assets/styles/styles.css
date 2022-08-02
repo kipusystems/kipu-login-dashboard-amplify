@@ -41,3 +41,24 @@ input.amplify-input[type="password"]{
 div[data-amplify-router]{
   @apply tw-rounded-lg tw-shadow-md tw-border-k-gray-500 !important
 }
+
+.zone-3{
+  height: 560px;
+  width: 520px;
+  margin: auto;
+}
+
+.zone3-bg-image-0 {
+  background-image: url('../images/zone3-bg1.jpg') !important;
+  display: block;
+}
+
+.zone3-bg-image-1 {
+  background-image: url('../images/zone3-bg2.jpg') !important;
+  display: block;
+}
+
+.zone3-bg-image-2 {
+  background-image: url('../images/zone3-bg3.jpg') !important;
+  display: block;
+}
