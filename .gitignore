@@ -4,6 +4,8 @@ src/aws-exports.js
 amplify/backend/awscloudformation/
 amplify/backend/amplify-meta.json
 
+/amplify-backup
+
 # dependencies
 /node_modules
 
