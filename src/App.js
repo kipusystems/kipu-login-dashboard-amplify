@@ -3,8 +3,8 @@ import './App.css';
 import Navbar from './navbar/Navbar' 
 import Landing from './landing/Landing'
 import Dashboard from './dashboard/Dashboard'
-import styles from './assets/styles/styles.css'
 import { Auth, Hub } from 'aws-amplify';
+import styles from './assets/styles/styles.css'
 
 function App(){
 
