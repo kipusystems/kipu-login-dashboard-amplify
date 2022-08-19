@@ -5,19 +5,23 @@ import Landing from './landing/Landing'
 import Dashboard from './dashboard/Dashboard'
 import { Auth, Hub } from 'aws-amplify';
 import styles from './assets/styles/styles.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateUser, resetUser } from './features/user/userSlice'
 
 function App(){
 
-  const [user, setUser] = useState({})
+  const currentUser = useSelector(state => state.user.value);
+  const dispatch = useDispatch();
 
   Hub.listen('auth', (data) => {
     const event = data.payload.event;
     if (event === "signOut") {
       deleteCookies()
-      setUser({})
+      dispatch(resetUser());
     }
     if (event === "signIn") {
-      setCognitoUser()
+      setCognitoUser();
+      // fetchInstances(currentUser)
     }
   });
 
@@ -43,7 +47,7 @@ function App(){
   async function setCognitoUser(){
     await Auth.currentAuthenticatedUser().then(result => {
       assignCookies(result.signInUserSession)
-      return setUser(result)  
+      return dispatch(updateUser(result))
     })
   }
 
@@ -53,8 +57,8 @@ function App(){
 
   return (
     <div className="App">
-      <Navbar user={user}/>
-      {Object.keys(user).length === 0 ? <Landing/> : <Dashboard/>}
+      <Navbar currentUser={currentUser}/>
+      { currentUser.email === '' ? <Landing/> : <Dashboard/>}
     </div>
   );
 }
