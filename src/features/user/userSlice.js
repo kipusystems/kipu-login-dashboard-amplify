@@ -12,8 +12,8 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     updateUser: (state, action) => {
-      state.value.email = action.payload.username
-      state.value.refreshToken = action.payload.signInUserSession.refreshToken.token
+      state.value.email = JSON.parse(action.payload).username
+      state.value.refreshToken = JSON.parse(action.payload).signInUserSession.refreshToken.token
     },
     resetUser: () => initialState
   },

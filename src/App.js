@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Navbar from './navbar/Navbar' 
 import Landing from './landing/Landing'
@@ -7,6 +7,8 @@ import { Auth, Hub } from 'aws-amplify';
 import styles from './assets/styles/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser, resetUser } from './features/user/userSlice'
+import { updateInstances } from './features/instances/instanceSlice'
+import { instanceFetcher } from './functions/Fetcher'
 
 function App(){
 
@@ -21,9 +23,16 @@ function App(){
     }
     if (event === "signIn") {
       setCognitoUser();
-      // fetchInstances(currentUser)
+      setInstances();
     }
   });
+
+  async function setInstances(){
+    await instanceFetcher(currentUser).then(result => {
+      dispatch(updateInstances(result.data.data.instances));
+      return true
+    });
+  };
 
   function setCookie(id, value){
     document.cookie = `${id}=${value};`;
@@ -47,13 +56,17 @@ function App(){
   async function setCognitoUser(){
     await Auth.currentAuthenticatedUser().then(result => {
       assignCookies(result.signInUserSession)
-      return dispatch(updateUser(result))
+      return dispatch(updateUser(JSON.stringify(result)))
     })
   }
 
   useEffect(() => {
-    setCognitoUser()
+    setCognitoUser();
   }, []);
+
+  useEffect(() => {
+    setInstances();
+  }, [currentUser]);
 
   return (
     <div className="App">

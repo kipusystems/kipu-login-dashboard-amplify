@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
 import TableList from './TableList.js'
 import CardList from './CardList.js'
 import Search from './Search.js'
-import Logo from '../assets/images/health-logo.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleView } from '../features/toggle/toggleSlice'
+import { instanceFetcher } from '../functions/Fetcher'
+import { updateInstances } from '../features/instances/instanceSlice'
+import RefreshIcon from 'mdi-react/RefreshIcon';
 
 function Dashboard() {
 
+  const currentUser = useSelector(state => state.user.value);
   const toggleValue = useSelector(state => state.toggle.value);
+  const instances = useSelector(state => state.instance.value);
+
   const dispatch = useDispatch();
 
   function goToInstance(e, instId){
@@ -16,38 +20,12 @@ function Dashboard() {
     console.log('hey man')
   }
 
-  var fakeInstances = [
-    {
-      locationName: 'Mario\'s House',
-      id: 1,
-      address: '123 Fake St. Miami, Fl. 33139',
-      logo: Logo
-    },
-    {
-      locationName: 'Isaac\'s House',
-      id: 2,
-      address: '123 Fake St. Miami, Fl. 33139',
-      logo: Logo
-    },
-    {
-      locationName: 'Sophie\'s House',
-      id: 3,
-      address: '123 Fake St. Miami, Fl. 33139',
-      logo: Logo
-    },
-    {
-      locationName: 'Paul\'s House',
-      id: 4,
-      address: '123 Fake St. Miami, Fl. 33139',
-      logo: Logo
-    },
-    {
-      locationName: 'Mana\'s House',
-      id: 5,
-      address: '123 Fake St. Miami, Fl. 33139',
-      logo: Logo
-    }
-  ]
+  async function refreshList(){
+    await instanceFetcher(currentUser).then(result => {
+      dispatch(updateInstances(result.data.data.instances));
+      return true
+    });
+  }
 
   function toggleBtn(){
     dispatch(toggleView());
@@ -70,9 +48,10 @@ function Dashboard() {
               <span id="switch" aria-hidden="true" className={`tw-bg-white tw-absolute tw-left-0 tw-h-5 tw-w-5 tw-rounded-full tw-shadow tw-transform tw-transition-transform tw-ease-in-out tw-duration-200 tw-block hover:tw-ring-8 ${toggleValue ? "tw-translate-x-5 tw-bg-k-true-blue-600" : "tw-translate-x-0 tw-bg-white"}`}></span>
             </button>
             <p>Card View</p>
+            <button onClick={refreshList}><RefreshIcon/></button>
           </div>
         </div>
-        { toggleValue ? <CardList instances={fakeInstances} goToInstance={goToInstance}/> : <TableList instances={fakeInstances} goToInstance={goToInstance}/> }
+        { toggleValue ? <CardList instances={instances} goToInstance={goToInstance}/> : <TableList instances={instances} goToInstance={goToInstance}/> }
       </div>
     </div>
   )
