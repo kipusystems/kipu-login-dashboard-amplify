@@ -15,11 +15,14 @@ export function instanceFetcher(currentUser){
   };
   return axios(config)
           .then(response => {
-            console.log('success')
             return response
           })
           .catch(error => {
             console.log(error);
             return error
           });
+}
+
+export function instanceUrl(subDomain){
+  return `https://${subDomain}.kipuworks.com`
 }
