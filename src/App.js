@@ -7,8 +7,9 @@ import { Auth, Hub } from 'aws-amplify';
 import styles from './assets/styles/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser, resetUser } from './features/user/userSlice'
-import { updateInstances } from './features/instances/instanceSlice'
-import { instanceFetcher } from './functions/Fetcher'
+import { updateInstances, resetInstances } from './features/instances/instanceSlice'
+import { instanceFetcher, goToInstance } from './functions/Fetcher'
+import { resetQueryResult } from './features/instances/querySlice'
 
 function App(){
 
@@ -20,6 +21,8 @@ function App(){
     if (event === "signOut") {
       deleteCookies()
       dispatch(resetUser());
+      dispatch(resetInstances());
+      dispatch(resetQueryResult());
     }
     if (event === "signIn") {
       setCognitoUser();
@@ -29,8 +32,10 @@ function App(){
 
   async function setInstances(){
     await instanceFetcher(currentUser).then(result => {
-      dispatch(updateInstances(result.data.data.instances));
-      return true
+      let instances = result.data.data.instances
+      if(instances == null) return;
+      if(instances.length == 1){ return goToInstance(instances) }
+      if(instances.length > 1){ return dispatch(updateInstances(instances)) }
     });
   };
 
@@ -56,6 +61,7 @@ function App(){
   async function setCognitoUser(){
     await Auth.currentAuthenticatedUser().then(result => {
       assignCookies(result.signInUserSession)
+      console.log(result)
       return dispatch(updateUser(JSON.stringify(result)))
     })
   }

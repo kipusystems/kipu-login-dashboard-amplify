@@ -7,7 +7,7 @@ function Table(props){
       <tr className="tw-border-solid tw-border-b tw-border-gray-200 hover:tw-bg-k-purple-50 tw-group" key={inst.kipu_instance_id}> 
         <td className="tw-px-2 tw-text-left sm:tw-text-sm md:tw-text-md tw-py-3">{inst.instance_name}</td>
         <td className="tw-px-2 tw-py-3">
-          <a target="_blank" href={instanceUrl(inst.kipu_instance_id)} className="tw-text-k-purple tw-uppercase tw-font-medium">Launch</a> 
+          <a target="_blank" href={instanceUrl(inst.instance_subdomain)} className="tw-text-k-purple tw-uppercase tw-font-medium">Launch</a> 
         </td>
       </tr>
     );

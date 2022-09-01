@@ -26,3 +26,8 @@ export function instanceFetcher(currentUser){
 export function instanceUrl(subDomain){
   return `https://${subDomain}.kipuworks.com`
 }
+
+export function goToInstance(instance){
+  return window.location.href = instance.url;
+}
+
