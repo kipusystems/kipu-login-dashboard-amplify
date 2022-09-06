@@ -59,7 +59,7 @@ function Dashboard() {
       <div className="tw-py-32 tw-mx-12">
         <div className="tw-w-4/6 tw-grid tw-grid-cols-3 tw-mx-auto tw-items-center tw-justify-center tw-mb-4">
           <div className="tw-text-left">
-            <h1 className="tw-text-2xl">Location List</h1>
+            <h1 data-test="list-header" className="tw-text-2xl">Location List</h1>
           </div>
           <div className="tw-text-center">
             <Search/>
