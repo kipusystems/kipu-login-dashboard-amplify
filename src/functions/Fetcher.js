@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const INSTANCE_FETCH_URL = `${process.env.REACT_APP_BASE_INSTANCE_URL}user/verify-user`
 
-export function instanceFetcher(currentUser){
-  var data = JSON.stringify({email: currentUser.email});
+export function instanceFetcher(user){
+  var data = JSON.stringify({email: user.email});
   var config = {
     method: 'post',
     url: INSTANCE_FETCH_URL,
@@ -15,11 +15,11 @@ export function instanceFetcher(currentUser){
   };
   return axios(config)
           .then(response => {
-            return response
+            return response.data
           })
           .catch(error => {
             console.log(error);
-            return error
+            return error.data
           });
 }
 
@@ -28,6 +28,6 @@ export function instanceUrl(subDomain){
 }
 
 export function goToInstance(instance){
-  return window.location.href = instance.url;
+  return window.location.href = `https://${instance.instance_subdomain}.kipuworks.com`
 }
 

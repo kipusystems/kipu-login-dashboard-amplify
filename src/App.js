@@ -10,6 +10,8 @@ import { updateUser, resetUser } from './features/user/userSlice'
 import { updateInstances, resetInstances } from './features/instances/instanceSlice'
 import { instanceFetcher, goToInstance } from './functions/Fetcher'
 import { resetQueryResult } from './features/instances/querySlice'
+import { displayMessage } from './features/toggle/displayMessageSlice'
+import { messageBody } from './features/messages/contentSlice'
 
 function App(){
 
@@ -19,23 +21,44 @@ function App(){
   Hub.listen('auth', (data) => {
     const event = data.payload.event;
     if (event === "signOut") {
-      deleteCookies()
-      dispatch(resetUser());
-      dispatch(resetInstances());
-      dispatch(resetQueryResult());
+      signOut();
     }
     if (event === "signIn") {
       setCognitoUser();
-      setInstances();
     }
   });
 
+  function signOut(){
+    deleteCookies()
+    dispatch(resetUser());
+    dispatch(resetInstances());
+    dispatch(resetQueryResult());
+    dispatch(displayMessage(false));
+    dispatch(messageBody(''));
+  }
+
+  async function setCognitoUser(){
+    await Auth.currentAuthenticatedUser().then(result => {
+      assignCookies(result.signInUserSession)
+      return dispatch(updateUser(JSON.stringify(result)))
+    }).catch((error) => { console.log(error) })
+  }
+
   async function setInstances(){
     await instanceFetcher(currentUser).then(result => {
-      let instances = result.data.data.instances
-      if(instances == null) return;
-      if(instances.length == 1){ return goToInstance(instances) }
-      if(instances.length > 1){ return dispatch(updateInstances(instances)) }
+      let data = result.data
+      if(data.instances == null) {
+        dispatch(displayMessage(true));
+        dispatch(messageBody('You do not have access to any instances. Please contact your administrator'));
+        return true
+      }
+      let instances = data.instances
+      if(instances.length === 1){ return goToInstance(instances[0]) }
+      if(instances.length > 1){ 
+        dispatch(displayMessage(false));
+        dispatch(messageBody(''));
+        return dispatch(updateInstances(instances)) 
+      }
     });
   };
 
@@ -58,20 +81,14 @@ function App(){
     setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
   }
 
-  async function setCognitoUser(){
-    await Auth.currentAuthenticatedUser().then(result => {
-      assignCookies(result.signInUserSession)
-      console.log(result)
-      return dispatch(updateUser(JSON.stringify(result)))
-    })
-  }
-
   useEffect(() => {
     setCognitoUser();
-  }, []);
+  });
 
   useEffect(() => {
-    setInstances();
+    if(currentUser.email !== ''){
+      setInstances();
+    }
   }, [currentUser]);
 
   return (

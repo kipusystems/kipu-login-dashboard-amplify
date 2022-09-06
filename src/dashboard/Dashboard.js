@@ -33,13 +33,10 @@ function Dashboard() {
   function renderInstances(){
     if(displayMessage){
       return(
-        <div className="tw-w-4/6 tw-mx-auto tw-justify-items-center">
-          <div class="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-1/2 tw-mx-auto">
-            <div class="tw-px-4 tw-py-5 sm:tw-px-6">
+        <div className="tw-w-4/6 tw-mx-auto tw-justify-items-center tw-mt-12">
+          <div className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-1/2 tw-mx-auto">
+            <div className="tw-px-4 tw-py-5 sm:tw-px-6">
               {messageBody}
-            </div>
-            <div class="tw-px-4 tw-py-3 sm:tw-px-6">
-              <button className="tw-inline-flex tw-justify-center tw-px-4 tw-border-2 tw-border-transparent tw-font-semibold tw-rounded-full tw-uppercase hover:tw-cursor-pointer tw-text-sm tw-py-2 tw-text-white tw-bg-k-dark-blue active:tw-bg-k-dark-blue hover:tw-bg-k-true-blue focus:tw-outline-none focus:tw-bg-k-true-blue focus:tw-ring-2 focus:tw-ring-k-dark-blue disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md">Reset Search</button>
             </div>
           </div>
         </div>
