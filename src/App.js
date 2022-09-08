@@ -7,9 +7,9 @@ import { Auth, Hub } from 'aws-amplify';
 import styles from './assets/styles/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser, resetUser } from './features/user/userSlice'
-import { updateInstances, resetInstances } from './features/instances/instanceSlice'
-import { instanceFetcher, goToInstance } from './functions/Fetcher'
-import { resetQueryResult } from './features/instances/querySlice'
+import { updateAccounts, resetAccounts } from './features/accounts/accountSlice'
+import { accountFetcher, goToURL } from './functions/Fetcher'
+import { resetQueryResult } from './features/accounts/querySlice'
 import { displayMessage } from './features/toggle/displayMessageSlice'
 import { messageBody } from './features/messages/contentSlice'
 
@@ -31,7 +31,7 @@ function App(){
   function signOut(){
     deleteCookies()
     dispatch(resetUser());
-    dispatch(resetInstances());
+    dispatch(resetAccounts());
     dispatch(resetQueryResult());
     dispatch(displayMessage(false));
     dispatch(messageBody(''));
@@ -40,24 +40,25 @@ function App(){
   async function setCognitoUser(){
     await Auth.currentAuthenticatedUser().then(result => {
       assignCookies(result.signInUserSession)
+      // console.log('result -> ', result.attributes)
       return dispatch(updateUser(JSON.stringify(result)))
     }).catch((error) => { console.log(error) })
   }
 
-  async function setInstances(){
-    await instanceFetcher(currentUser).then(result => {
+  async function setAccounts(){
+    await accountFetcher(currentUser).then(result => {
       let data = result.data
-      if(data.instances == null) {
+      if(data.accounts == null) {
         dispatch(displayMessage(true));
-        dispatch(messageBody('You do not have access to any instances. Please contact your administrator'));
+        dispatch(messageBody('You do not have access to any accounts. Please contact your administrator'));
         return true
       }
-      let instances = data.instances
-      if(instances.length === 1){ return goToInstance(instances[0]) }
-      if(instances.length > 1){ 
+      let accounts = data.accounts
+      if(accounts.length === 1){ return goToURL(accounts[0]) }
+      if(accounts.length > 1){ 
         dispatch(displayMessage(false));
         dispatch(messageBody(''));
-        return dispatch(updateInstances(instances)) 
+        return dispatch(updateAccounts(accounts)) 
       }
     });
   };
@@ -87,7 +88,7 @@ function App(){
 
   useEffect(() => {
     if(currentUser.email !== ''){
-      setInstances();
+      setAccounts();
     }
   }, [currentUser]);
 

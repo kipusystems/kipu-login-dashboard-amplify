@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { updateQueryResult, resetQueryResult } from '../features/instances/querySlice'
+import { updateQueryResult, resetQueryResult } from '../features/accounts/querySlice'
 import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { messageBody } from '../features/messages/contentSlice'
 
 function Search(){
-  const instances = useSelector(state => state.instance.value);
+  const accounts = useSelector(state => state.accounts.value);
   const dispatch = useDispatch();
 
   function initSearch(e){
@@ -15,9 +15,9 @@ function Search(){
       return dispatch(resetQueryResult())
     }
 
-    let result = instances.filter(function (inst) { return inst.instance_name.toLowerCase().includes(e.target.value.toLowerCase()); });
+    let result = accounts.filter(function (acct) { return acct.account_name.toLowerCase().includes(e.target.value.toLowerCase()); });
 
-    if(result.length != 0){
+    if(result.length !== 0){
       dispatch(toggleQueryResult(true));
       dispatch(displayMessage(false));
       dispatch(updateQueryResult(result))

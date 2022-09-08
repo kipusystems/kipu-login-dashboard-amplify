@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const querySlice = createSlice({
-  name: 'instanceQuery',
+  name: 'accountQuery',
   initialState,
   reducers: {
     updateQueryResult: (state, action) => {

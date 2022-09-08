@@ -4,7 +4,7 @@ import LoginLogo from '../assets/images/login-logo.jpeg'
 function Signin() {
   return (
     <div className="tw-px-10 tw-w-1/2">
-      <img src={LoginLogo} className="tw-w-1/2 tw-mx-auto"/>
+      <img src={LoginLogo} alt="Kipu-logo" className="tw-w-1/2 tw-mx-auto"/>
       <div className="tw-py-6">
         <h1>Staff Sign In Here and Accept Terms of Service</h1>
       </div>

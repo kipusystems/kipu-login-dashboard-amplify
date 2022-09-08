@@ -13,7 +13,12 @@
     },
     "categories": {
       "auth": {
-        "kipulogindashboardamf487aaf4": {}
+        "kipulogindashboardam860f98f0": {
+          "userPoolId": "us-east-1_4LqXhppJy",
+          "userPoolName": "user-management-api-dev",
+          "webClientId": "3vv208bbunc14ubjf5q4avaf8p",
+          "nativeClientId": "3vv208bbunc14ubjf5q4avaf8p"
+        }
       }
     }
   },

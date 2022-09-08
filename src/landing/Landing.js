@@ -29,7 +29,7 @@ function Landing() {
       <div className="tw-px-10 tw-w-1/2">
         <ins className={`zone-3 ${imageBlocked() || ''}`} id="zone3" data-revive-zoneid="1" data-revive-id="1dfaae5996a6ccb7c316ad36d44cc0f2"  data-revive-kipuversion={process.env.REACT_APP_KIPU_VERSION} data-revive-kipuroles={getCookie('kipu_user_roles')}>
           <a className="tw-mx-auto" href="//kipu.health">
-            <img className="tw-mx-auto zone-image" src={randomImage()} />
+            <img alt="" className="tw-mx-auto zone-image" src={randomImage()} />
           </a>
         </ins>
       </div>
