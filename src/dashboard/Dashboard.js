@@ -35,7 +35,7 @@ function Dashboard() {
       return(
         <div className="tw-w-4/6 tw-mx-auto tw-justify-items-center tw-mt-12">
           <div className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-1/2 tw-mx-auto">
-            <div className="tw-px-4 tw-py-5 sm:tw-px-6">
+            <div data-test="message-header" className="tw-px-4 tw-py-5 sm:tw-px-6">
               {messageBody}
             </div>
           </div>

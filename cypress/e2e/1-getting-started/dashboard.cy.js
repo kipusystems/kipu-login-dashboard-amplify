@@ -1,12 +1,11 @@
 /// <reference types="cypress" />
 
-describe('example to-do app', () => {
+describe('landing page', () => {
 
+  // const locations = ['Atlanta Recovery Place', 'Family First Adolescent Services', 'House of Freedom', 'Illumination Foundation', 'Daybreak Treatment Solutions ',
+  //                   'ClearVision Health and Wellness', 'Second Chance Recovery Center']; 
 
   beforeEach(() => {
-
-    cy.log('banana')
-  
     cy.visit('http://localhost:3000/')
     Cypress.on('uncaught:exception', (err, runnable) => {
       return false
@@ -44,11 +43,16 @@ describe('example to-do app', () => {
     cy.get('input[name="username"]')
       .type('nishant.kumar@veersatech.com', {force: true})
     cy.get('input[name="password"]')
-      .type('Nishant@123', {force: true})
+      .type('KIPU-test-1234', {force: true})
 
     // checking if the input fields contain values before sign in
     cy.get('input[name="username"]').should('have.value', 'nishant.kumar@veersatech.com')
-    cy.get('input[name="password"]').should('have.value', 'Nishant@123')
+    cy.get('input[name="password"]').should('have.value', 'KIPU-test-1234')
+    
+    // ensure valid email address
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    cy.get('input[name="username"]').invoke('val').should('match', validRegex)
+  
     cy.get('form').submit();
     
     //  checking if sign out button is visible after successfull sign in
@@ -58,13 +62,28 @@ describe('example to-do app', () => {
     //  checking if toggle button is present to switch views
     cy.get('button[role="switch"]').should('be.visible');
     cy.get('button[role="switch"] + p').should('have.text','Card View')
+    
+    //  checking if instances are visible  
+    const list = cy.get('[data-test="table-list-item"]');
+    list.each((item,index)=> {
+      cy.wrap(item).find('td').first().invoke('text').then(text=> {
+        expect(text.length).to.be.at.least(1);
+      });
+    })
+
+    // checking if launch link are working
+    cy.get('td a').each((item, index) => {
+      cy.request(item.prop('href'))
+      cy.wrap(item).invoke('attr','target').should('eq','_blank')
+    })
+
 
     //  checking the redirection to landing page after clicking sign out
-    cy.get('button').contains('Sign Out').click();
+    cy.get('[data-test="sign-out"]').click();
     cy.get('input[name="username"]',{timeout: 20000}).should('be.visible');
     cy.get('button[type="submit"]').then($button => {
       expect($button.is(':visible')).to.true
     })
   })
-
 })
+
