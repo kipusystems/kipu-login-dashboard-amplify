@@ -2,7 +2,7 @@ function Table(props){
 
   var items = props.accounts.map(function(acct){
     return(
-      <tr className="tw-border-solid tw-border-b tw-border-gray-200 hover:tw-bg-k-purple-50 tw-group" key={acct.account_id}> 
+      <tr data-test="table-list-item" className="tw-border-solid tw-border-b tw-border-gray-200 hover:tw-bg-k-purple-50 tw-group" key={acct.account_id}> 
         <td className="tw-px-2 tw-text-left sm:tw-text-sm md:tw-text-md tw-py-3">{acct.account_name}</td>
         <td className="tw-px-2 tw-py-3">
           <a target="_blank" rel="noreferrer" href={acct.account_url} className="tw-text-k-purple tw-uppercase tw-font-medium">Launch</a> 
