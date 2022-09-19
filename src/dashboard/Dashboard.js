@@ -6,6 +6,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toggleView } from '../features/toggle/toggleSlice'
 import { accountFetcher } from '../functions/Fetcher'
 import { updateAccounts } from '../features/accounts/accountSlice'
+import { resetQueryResult } from '../features/accounts/querySlice'
+import { displayMessage } from '../features/toggle/displayMessageSlice'
+import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
+
 import RefreshIcon from 'mdi-react/RefreshIcon';
 
 function Dashboard() {
@@ -15,7 +19,7 @@ function Dashboard() {
   const accounts = useSelector(state => state.accounts.value);
   const displayQueryAccounts = useSelector(state => state.showQueryResult.value);
   const queryAccounts = useSelector(state => state.query.value);
-  const displayMessage = useSelector(state => state.displayMessage.value);
+  const showMessage = useSelector(state => state.displayMessage.value);
   const offSetValues = useSelector(state => state.offset.value);
   const messageBody = useSelector(state => state.messageBody.value);
 
@@ -33,12 +37,19 @@ function Dashboard() {
   }
 
   function renderAccounts(){
-    if(displayMessage){
+    if(showMessage){
       return(
         <div className="tw-w-4/6 tw-mx-auto tw-justify-items-center tw-mt-12">
           <div className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-1/2 tw-mx-auto">
             <div data-test="message-header" className="tw-px-4 tw-py-5 sm:tw-px-6">
               {messageBody}
+            </div>
+            <div className="tw-px-4 tw-py-5 sm:tw-px-6">
+              <button 
+                className="tw-inline-flex tw-justify-center tw-px-4 tw-border-2 tw-border-transparent tw-font-semibold tw-rounded-full tw-uppercase hover:tw-cursor-pointer tw-text-sm tw-py-2 tw-text-white tw-bg-k-dark-blue active:tw-bg-k-dark-blue hover:tw-bg-k-true-blue focus:tw-outline-none focus:tw-bg-k-true-blue focus:tw-ring-2 focus:tw-ring-k-dark-blue disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" 
+                onClick={() => {dispatch(resetQueryResult()); dispatch(toggleQueryResult(false)); dispatch(displayMessage(false)); document.getElementById("search-field").value = ''}}>
+                  Reset Search
+              </button>
             </div>
           </div>
         </div>
