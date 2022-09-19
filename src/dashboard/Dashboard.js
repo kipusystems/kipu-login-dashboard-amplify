@@ -1,6 +1,7 @@
 import TableList from './TableList.js'
 import CardList from './CardList.js'
 import Search from './Search.js'
+import Pagination from '../pagination/Pagination.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleView } from '../features/toggle/toggleSlice'
 import { accountFetcher } from '../functions/Fetcher'
@@ -15,13 +16,14 @@ function Dashboard() {
   const displayQueryAccounts = useSelector(state => state.showQueryResult.value);
   const queryAccounts = useSelector(state => state.query.value);
   const displayMessage = useSelector(state => state.displayMessage.value);
+  const offSetValues = useSelector(state => state.offset.value);
   const messageBody = useSelector(state => state.messageBody.value);
 
   const dispatch = useDispatch();
 
   async function refreshList(){
     await accountFetcher(currentUser).then(result => {
-      dispatch(updateAccounts(result.data.data.accounts));
+      dispatch(updateAccounts(result.data.accounts));
       return true
     });
   }
@@ -44,13 +46,19 @@ function Dashboard() {
     }
     if(displayQueryAccounts){
       return(
-        toggleValue ? <CardList accounts={queryAccounts}/> : <TableList accounts={queryAccounts}/>
+        toggleValue ? <CardList accounts={accountsToShow(queryAccounts)}/> : <TableList accounts={accountsToShow(queryAccounts)}/>
       )
     }else{
       return(
-        toggleValue ? <CardList accounts={accounts}/> : <TableList accounts={accounts}/>
+        toggleValue ? <CardList accounts={accountsToShow(accounts)}/> : <TableList accounts={accountsToShow(accounts)}/>
       )
     }
+  }
+
+  function accountsToShow(accounts){
+    let start = offSetValues.start
+    let end = offSetValues.end
+    return accounts.slice(start, end)
   }
 
 
@@ -75,6 +83,7 @@ function Dashboard() {
           </div>
         </div>
         {renderAccounts()}
+        <Pagination/>
       </div>
     </div>
   )

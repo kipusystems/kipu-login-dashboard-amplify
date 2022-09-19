@@ -5,7 +5,7 @@ import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { messageBody } from '../features/messages/contentSlice'
 
 function Search(){
-  const accounts = useSelector(state => state.accounts.value);
+  const accounts = useSelector(state => state.accounts.value);  
   const dispatch = useDispatch();
 
   function initSearch(e){
@@ -16,7 +16,7 @@ function Search(){
     }
 
     let result = accounts.filter(function (acct) { return acct.account_name.toLowerCase().includes(e.target.value.toLowerCase()); });
-
+    console.log(result)
     if(result.length !== 0){
       dispatch(toggleQueryResult(true));
       dispatch(displayMessage(false));

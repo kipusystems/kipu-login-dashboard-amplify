@@ -6,6 +6,9 @@ import queryReducer from './features/accounts/querySlice'
 import queryResultReducer from './features/toggle/showQueryResultSlice'
 import messageBodyReducer from './features/messages/contentSlice'
 import displayMessageReducer from './features/toggle/displayMessageSlice'
+import paginationReducer from './features/pagination/paginationSlice'
+import perPageReducer from './features/pagination/perPageSlice'
+import offsetReducer from './features/pagination/offsetSlice'
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +19,8 @@ export const store = configureStore({
     showQueryResult: queryResultReducer,
     messageBody: messageBodyReducer,
     displayMessage: displayMessageReducer,
+    page: paginationReducer,
+    rowsPerPage: perPageReducer,
+    offset: offsetReducer
   },
 })
