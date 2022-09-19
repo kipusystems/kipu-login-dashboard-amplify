@@ -12,7 +12,7 @@ function Table(props){
   })
 
   return(
-    <div className="tw-p-8 tw-w-4/6 tw-mx-auto tw-border tw-rounded tw-shadow">
+    <div data-test="table-list" className="tw-p-8 tw-w-4/6 tw-mx-auto tw-border tw-rounded tw-shadow">
       <table className="tw-table-auto tw-w-full">
         <thead>
           <tr className="tw-text-left tw-text-base tw-font-normal tw-border-b tw-relative">

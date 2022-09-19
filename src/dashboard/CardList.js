@@ -2,7 +2,7 @@ function CardList(props){
 
   var accountCards = props.accounts.map(function(acct){
     return(
-      <div className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-full tw-cursor-pointer tw-my-4" widthoption="large" aligncontent="left" key={acct.account_id}>
+      <div data-test="card-list" className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-full tw-cursor-pointer tw-my-4" widthoption="large" aligncontent="left" key={acct.account_id}>
         <div className="tw-px-4 tw-py-5 sm:tw-px-6">
           {acct.account_name}
         </div>

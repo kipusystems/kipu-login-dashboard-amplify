@@ -19,23 +19,15 @@ describe('landing page', () => {
   })
 
   it('ensure sign in button is visible', () => {
-    cy.get('button').contains('Sign in').then($button => {
-      expect($button.is(':visible')).to.true
-    })
+    cy.get('button').contains('Sign in').should('be.visible');
   })
 
   it('ensure forgot password button is clickable', () => {
-    cy.get('button').contains('Forgot your password?').then($button => {
-      expect($button.is(':enabled')).to.true
-    })
-
+    cy.get('button').contains('Forgot your password?').should('be.enabled');
   })
 
   it('ensure sign in button is visible', () => {
-    cy.get('button[type="submit"]').then($button => {
-      expect($button.is(':visible')).to.true
-    })
-
+    cy.get('button[type="submit"]').should('be.visible')
   })
 
   it('ensure successful sign in', async () => {
@@ -81,9 +73,7 @@ describe('landing page', () => {
     //  checking the redirection to landing page after clicking sign out
     cy.get('[data-test="sign-out"]').click();
     cy.get('input[name="username"]',{timeout: 20000}).should('be.visible');
-    cy.get('button[type="submit"]').then($button => {
-      expect($button.is(':visible')).to.true
-    })
+    cy.get('button[type="submit"]').should('be.visible');
   })
 })
 

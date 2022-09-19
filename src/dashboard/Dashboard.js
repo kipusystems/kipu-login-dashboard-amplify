@@ -79,7 +79,7 @@ function Dashboard() {
               <span id="switch" aria-hidden="true" className={`tw-bg-white tw-absolute tw-left-0 tw-h-5 tw-w-5 tw-rounded-full tw-shadow tw-transform tw-transition-transform tw-ease-in-out tw-duration-200 tw-block hover:tw-ring-8 ${toggleValue ? "tw-translate-x-5 tw-bg-k-true-blue-600" : "tw-translate-x-0 tw-bg-white"}`}></span>
             </button>
             <p>Card View</p>
-            <button onClick={refreshList}><RefreshIcon/></button>
+            <button data-test="refresh-button" onClick={refreshList}><RefreshIcon/></button>
           </div>
         </div>
         {renderAccounts()}
