@@ -85,6 +85,10 @@ function Dashboard() {
     return accounts.slice(start, end)
   }
 
+  function renderPagination(){
+    return isLoading !== true ? <Pagination/> : ''
+  }
+
 
   return (
     <div>
@@ -107,7 +111,7 @@ function Dashboard() {
           </div>
         </div>
         {renderAccounts()}
-        <Pagination/>
+        {renderPagination()}
       </div>
     </div>
   )
