@@ -85,8 +85,8 @@ function Pagination() {
 
   function pageLink(page){
     return (
-      <a href="#" className={classNames({
-        'tw-bg-white': true,
+      <button className={classNames({
+        'tw-bg-white': page !== currentPage,
         'md:tw-inline-flex': true,
         'tw-relative': true,
         'tw-items-center': true,
@@ -102,7 +102,7 @@ function Pagination() {
         'tw-rounded': true,
         'tw-text-white': page === currentPage,
         'tw-bg-k-purple-600': page === currentPage,
-      })} onClick={() => dispatch(goToPage(page))} key={page}>{page}</a>
+      })} onClick={() => dispatch(goToPage(page))} key={page}>{page}</button>
     )
   }
 
