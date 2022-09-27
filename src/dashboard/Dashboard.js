@@ -2,6 +2,7 @@ import TableList from './TableList.js'
 import CardList from './CardList.js'
 import Search from './Search.js'
 import Pagination from '../pagination/Pagination.js'
+import Spinner from 'react-spinner-material';
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleView } from '../features/toggle/toggleSlice'
 import { accountFetcher } from '../functions/Fetcher'
@@ -9,6 +10,8 @@ import { updateAccounts } from '../features/accounts/accountSlice'
 import { resetQueryResult } from '../features/accounts/querySlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
+import { updateLoadingStatus } from '../features/accounts/isLoadingSlice'
+
 
 import RefreshIcon from 'mdi-react/RefreshIcon';
 
@@ -22,11 +25,14 @@ function Dashboard() {
   const showMessage = useSelector(state => state.displayMessage.value);
   const offSetValues = useSelector(state => state.offset.value);
   const messageBody = useSelector(state => state.messageBody.value);
+  const isLoading = useSelector(state => state.isLoading.value);
 
   const dispatch = useDispatch();
 
   async function refreshList(){
+    dispatch(updateLoadingStatus(true))
     await accountFetcher(currentUser).then(result => {
+      dispatch(updateLoadingStatus(false))
       dispatch(updateAccounts(result.data.accounts));
       return true
     });
@@ -37,6 +43,13 @@ function Dashboard() {
   }
 
   function renderAccounts(){
+    if(isLoading === true){
+      return(
+        <div class="tw-w-1/12 tw-mx-auto tw-px-5">
+          <Spinner radius={90} color={"#501270"} stroke={5} visible={true} />
+        </div>
+      )
+    }
     if(showMessage){
       return(
         <div className="tw-w-4/6 tw-mx-auto tw-justify-items-center tw-mt-12">
@@ -72,6 +85,10 @@ function Dashboard() {
     return accounts.slice(start, end)
   }
 
+  function renderPagination(){
+    return isLoading !== true ? <Pagination/> : ''
+  }
+
 
   return (
     <div>
@@ -94,7 +111,7 @@ function Dashboard() {
           </div>
         </div>
         {renderAccounts()}
-        <Pagination/>
+        {renderPagination()}
       </div>
     </div>
   )

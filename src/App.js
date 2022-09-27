@@ -12,6 +12,7 @@ import { accountFetcher, goToURL } from './functions/Fetcher'
 import { resetQueryResult } from './features/accounts/querySlice'
 import { displayMessage } from './features/toggle/displayMessageSlice'
 import { messageBody } from './features/messages/contentSlice'
+import { updateLoadingStatus } from './features/accounts/isLoadingSlice'
 
 function App(){
 
@@ -35,12 +36,12 @@ function App(){
     dispatch(resetQueryResult());
     dispatch(displayMessage(false));
     dispatch(messageBody(''));
+    dispatch(updateLoadingStatus(true))
   }
 
   async function setCognitoUser(){
     await Auth.currentAuthenticatedUser().then(result => {
       assignCookies(result.signInUserSession)
-      // console.log('result -> ', result.attributes)
       return dispatch(updateUser(JSON.stringify(result)))
     }).catch((error) => { console.log(error) })
   }
@@ -49,6 +50,7 @@ function App(){
     await accountFetcher(currentUser).then(result => {
       let data = result.data
       if(data.accounts == null) {
+        dispatch(updateLoadingStatus(false))
         dispatch(displayMessage(true));
         dispatch(messageBody('You do not have access to any accounts. Please contact your administrator'));
         return true
@@ -58,6 +60,7 @@ function App(){
       if(accounts.length > 1){ 
         dispatch(displayMessage(false));
         dispatch(messageBody(''));
+        dispatch(updateLoadingStatus(false));
         return dispatch(updateAccounts(accounts)) 
       }
     });

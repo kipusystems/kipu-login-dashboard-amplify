@@ -3,6 +3,7 @@ import toggleReducer from './features/toggle/toggleSlice'
 import userReducer from './features/user/userSlice'
 import accountReducer from './features/accounts/accountSlice'
 import queryReducer from './features/accounts/querySlice'
+import loadingReducer from './features/accounts/isLoadingSlice'
 import queryResultReducer from './features/toggle/showQueryResultSlice'
 import messageBodyReducer from './features/messages/contentSlice'
 import displayMessageReducer from './features/toggle/displayMessageSlice'
@@ -21,6 +22,7 @@ export const store = configureStore({
     displayMessage: displayMessageReducer,
     page: paginationReducer,
     rowsPerPage: perPageReducer,
-    offset: offsetReducer
+    offset: offsetReducer,
+    isLoading: loadingReducer
   },
 })
