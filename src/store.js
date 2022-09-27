@@ -10,6 +10,7 @@ import displayMessageReducer from './features/toggle/displayMessageSlice'
 import paginationReducer from './features/pagination/paginationSlice'
 import perPageReducer from './features/pagination/perPageSlice'
 import offsetReducer from './features/pagination/offsetSlice'
+import alertReducer from './features/alerts/alertSlice'
 
 export const store = configureStore({
   reducer: {
@@ -23,6 +24,7 @@ export const store = configureStore({
     page: paginationReducer,
     rowsPerPage: perPageReducer,
     offset: offsetReducer,
-    isLoading: loadingReducer
+    isLoading: loadingReducer,
+    alert: alertReducer,
   },
 })
