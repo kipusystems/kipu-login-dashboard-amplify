@@ -102,7 +102,7 @@ function Pagination() {
         'tw-rounded': true,
         'tw-text-white': page === currentPage,
         'tw-bg-k-purple-600': page === currentPage,
-      })} onClick={() => dispatch(goToPage(page))} key={page}>{page}</button>
+      })} data-test="page-link" onClick={() => dispatch(goToPage(page))} key={page}>{page}</button>
     )
   }
 
@@ -190,20 +190,20 @@ function Pagination() {
       </div>
       {/* page x of _ */}
       <div>
-        <p className="tw-text-sm tw-text-gray-700 tw-mb-0">{offSetValues.start + 1} {endCountNumber()} of {totalAccounts} accounts</p>
+        <p className="tw-text-sm tw-text-gray-700 tw-mb-0">{offSetValues.start + 1} {endCountNumber()} of <span id="total-accounts">{totalAccounts}</span> accounts</p>
       </div>
       {/* buttons */}
       <div className="tw-bg-white tw-mx-auto tw-py-3">
         <div className="tw-flex-1 tw-flex tw-items-center tw-justify-between tw-flex-row-reverse">
           <div className="tw-flex tw-space-x-10 tw-items-center tw-justify-between">
             <nav className="tw-relative tw-space-x-3 tw-z-0 tw-inline-flex">
-              <span onClick={clickPrev} className="tw-relative tw-inline-flex tw-items-center tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 tw-text-lg hover:tw-bg-k-true-blue-50 tw-leading-9 tw-h-9 tw-w-9 tw-group tw-rounded tw-cursor-pointer"><i className="tw-mx-auto group-hover:tw-text-k-gray-700"><ChevronLeft/></i></span>
+              <span data-test="left-arrow" onClick={clickPrev} className="tw-relative tw-inline-flex tw-items-center tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 tw-text-lg hover:tw-bg-k-true-blue-50 tw-leading-9 tw-h-9 tw-w-9 tw-group tw-rounded tw-cursor-pointer"><i className="tw-mx-auto group-hover:tw-text-k-gray-700"><ChevronLeft/></i></span>
               {beginningPages()}
               {showElipses(firstThreePages())}
               {innerPages()}
               {showElipses(lastThreePages())}
               {endPages()}
-              <span onClick={clickNext} className="tw-relative tw-inline-flex tw-items-center tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 tw-text-lg hover:tw-bg-k-true-blue-50 tw-leading-9 tw-h-9 tw-w-9 tw-group tw-rounded tw-cursor-pointer"><i className="mdi mdi-chevron-right tw-mx-auto group-hover:tw-text-k-gray-700"><ChevronRight/></i></span>
+              <span data-test="right-arrow" onClick={clickNext} className="tw-relative tw-inline-flex tw-items-center tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 tw-text-lg hover:tw-bg-k-true-blue-50 tw-leading-9 tw-h-9 tw-w-9 tw-group tw-rounded tw-cursor-pointer"><i className="mdi mdi-chevron-right tw-mx-auto group-hover:tw-text-k-gray-700"><ChevronRight/></i></span>
             </nav>
           </div>
         </div>
