@@ -95,7 +95,7 @@ function Pagination() {
         'tw-justify-center': true,
         'hover:tw-bg-k-true-blue-50': true,
         'hover:tw-text-k-true-blue-800': true,
-        'tw-p-3': true,
+        'md:tw-p-3': true,
         'tw-leading-9': true,
         'tw-h-9': true,
         'tw-w-9': true,
@@ -166,9 +166,9 @@ function Pagination() {
   }, [perPage, currentPage]);
 
   return (
-    <div className="tw-flex tw-space-x-8 tw-items-center tw-place-content-end tw-w-4/6 tw-mx-auto tw-mt-4">
+    <div className="xs:tw-flex-col md:tw-flex tw-items-center tw-w-full tw-mx-auto tw-mt-4 md:tw-space-x-8 md:tw-place-content-end md:tw-w-4/6">
       {/* dropdown */}
-      <div className="tw-inline-flex tw-space-x-4 tw-items-center">
+      <div className="tw-hidden md:tw-inline-flex tw-space-x-4 tw-items-center">
         <div>
           <p className="tw-text-sm tw-mb-0">Rows per page</p>
         </div>
@@ -189,12 +189,12 @@ function Pagination() {
         </div>
       </div>
       {/* page x of _ */}
-      <div>
+      <div className="tw-mb-4 md:tw-mb-0">
         <p className="tw-text-sm tw-text-gray-700 tw-mb-0">{offSetValues.start + 1} {endCountNumber()} of <span id="total-accounts">{totalAccounts}</span> accounts</p>
       </div>
       {/* buttons */}
       <div className="tw-bg-white tw-mx-auto tw-py-3">
-        <div className="tw-flex-1 tw-flex tw-items-center tw-justify-between tw-flex-row-reverse">
+        <div className="tw-flex tw-items-center tw-justify-center md:tw-flex-row-reverse">
           <div className="tw-flex tw-space-x-10 tw-items-center tw-justify-between">
             <nav className="tw-relative tw-space-x-3 tw-z-0 tw-inline-flex">
               <span data-test="left-arrow" onClick={clickPrev} className="tw-relative tw-inline-flex tw-items-center tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 tw-text-lg hover:tw-bg-k-true-blue-50 tw-leading-9 tw-h-9 tw-w-9 tw-group tw-rounded tw-cursor-pointer"><i className="tw-mx-auto group-hover:tw-text-k-gray-700"><ChevronLeft/></i></span>
