@@ -45,7 +45,7 @@ function Dashboard() {
   function renderAccounts(){
     if(isLoading === true){
       return(
-        <div class="tw-w-1/12 tw-mx-auto tw-px-5">
+        <div data-test="spinner" class="tw-w-1/12 tw-mx-auto tw-px-5">
           <Spinner radius={90} color={"#501270"} stroke={5} visible={true} />
         </div>
       )
@@ -59,6 +59,7 @@ function Dashboard() {
             </div>
             <div className="tw-px-4 tw-py-5 sm:tw-px-6">
               <button 
+                data-test="reset-search"
                 className="tw-inline-flex tw-justify-center tw-px-4 tw-border-2 tw-border-transparent tw-font-semibold tw-rounded-full tw-uppercase hover:tw-cursor-pointer tw-text-sm tw-py-2 tw-text-white tw-bg-k-dark-blue active:tw-bg-k-dark-blue hover:tw-bg-k-true-blue focus:tw-outline-none focus:tw-bg-k-true-blue focus:tw-ring-2 focus:tw-ring-k-dark-blue disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" 
                 onClick={() => {dispatch(resetQueryResult()); dispatch(toggleQueryResult(false)); dispatch(displayMessage(false)); document.getElementById("search-field").value = ''}}>
                   Reset Search
