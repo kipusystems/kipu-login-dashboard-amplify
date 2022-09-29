@@ -11,10 +11,10 @@ import { updateOffsetValues } from '../features/pagination/offsetSlice'
 
 function Pagination() {
 
-  const currentPage = useSelector(state => state.page.value);
+  const currentPage = useSelector(state => state.currentPage.value);
   const perPage = useSelector(state => state.rowsPerPage.value);
   const accounts = useSelector(state => state.accounts.value)
-  const queryResults = useSelector(state => state.query.value)
+  const queryResults = useSelector(state => state.queryResult.value)
   const totalAccounts = queryResults.length === 0 ? accounts.length : queryResults.length;
   const offSetValues = useSelector(state => state.offset.value);
   const lastPageNumber = Math.ceil(totalAccounts/perPage)

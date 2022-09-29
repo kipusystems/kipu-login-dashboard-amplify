@@ -14,14 +14,14 @@ import alertReducer from './features/alerts/alertSlice'
 
 export const store = configureStore({
   reducer: {
-    toggle: toggleReducer,
+    toggleView: toggleReducer,
     user: userReducer,
     accounts: accountReducer,
-    query: queryReducer,
+    queryResult: queryReducer,
     showQueryResult: queryResultReducer,
     messageBody: messageBodyReducer,
     displayMessage: displayMessageReducer,
-    page: paginationReducer,
+    currentPage: paginationReducer,
     rowsPerPage: perPageReducer,
     offset: offsetReducer,
     isLoading: loadingReducer,
