@@ -1,12 +1,8 @@
 import TableList from './TableList.js'
 import CardList from './CardList.js'
-import Search from './Search.js'
 import Pagination from '../pagination/Pagination.js'
 import Spinner from 'react-spinner-material';
 import { useSelector, useDispatch } from 'react-redux'
-import { toggleView } from '../features/toggle/toggleSlice'
-import { accountFetcher } from '../functions/Fetcher'
-import { updateAccounts } from '../features/accounts/accountSlice'
 import { resetQueryResult } from '../features/accounts/querySlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
@@ -17,7 +13,6 @@ import RefreshIcon from 'mdi-react/RefreshIcon';
 
 function Dashboard() {
 
-  const currentUser = useSelector(state => state.user.value);
   const toggleValue = useSelector(state => state.toggle.value);
   const accounts = useSelector(state => state.accounts.value);
   const displayQueryAccounts = useSelector(state => state.showQueryResult.value);
@@ -29,23 +24,10 @@ function Dashboard() {
 
   const dispatch = useDispatch();
 
-  async function refreshList(){
-    dispatch(updateLoadingStatus(true))
-    await accountFetcher(currentUser).then(result => {
-      dispatch(updateLoadingStatus(false))
-      dispatch(updateAccounts(result.data.accounts));
-      return true
-    });
-  }
-
-  function toggleBtn(){
-    dispatch(toggleView());
-  }
-
   function renderAccounts(){
     if(isLoading === true){
       return(
-        <div data-test="spinner" class="tw-w-1/12 tw-mx-auto tw-px-5">
+        <div data-test="spinner" class="tw-w-1/3 md:tw-w-1/12 tw-mx-auto tw-px-5">
           <Spinner radius={90} color={"#501270"} stroke={5} visible={true} />
         </div>
       )
@@ -93,22 +75,10 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="tw-py-32 tw-mx-12">
-        <div className="tw-w-4/6 tw-grid tw-grid-cols-3 tw-mx-auto tw-items-center tw-justify-center tw-mb-4">
+      <div className="tw-py-8 lg:tw-py-12 lg:tw-mx-12">
+        <div className="tw-w-11/12 md:tw-w-4/6 tw-mx-auto tw-text-left tw-mb-4">
           <div className="tw-text-left">
-            <h1 data-test="list-header" className="tw-text-2xl">Location List</h1>
-          </div>
-          <div className="tw-text-center">
-            <Search/>
-          </div>
-          <div className="tw-flex tw-flex-row tw-place-content-end tw-space-x-4">
-            <p>Table View</p>
-            <button type="button" role="switch" aria-checked="false" className="tw-flex-shrink-0 tw-group tw-relative tw-rounded-full tw-inline-flex tw-items-center tw-justify-center tw-h-5 tw-w-10 tw-cursor-pointer" onClick={toggleBtn}>
-              <span id="background" aria-hidden="true" className={`tw-pointer-events-none tw-absolute tw-h-4 tw-w-9 tw-mx-auto tw-rounded-full tw-transition-colors tw-ease-in-out tw-duration-200 ${toggleValue ? "tw-bg-k-true-blue-300" : "tw-bg-gray-200"}`}></span> 
-              <span id="switch" aria-hidden="true" className={`tw-bg-white tw-absolute tw-left-0 tw-h-5 tw-w-5 tw-rounded-full tw-shadow tw-transform tw-transition-transform tw-ease-in-out tw-duration-200 tw-block hover:tw-ring-8 ${toggleValue ? "tw-translate-x-5 tw-bg-k-true-blue-600" : "tw-translate-x-0 tw-bg-white"}`}></span>
-            </button>
-            <p>Card View</p>
-            <button data-test="refresh-button" onClick={refreshList}><RefreshIcon/></button>
+            <h1 data-test="list-header" className="tw-text-2xl">Locations</h1>
           </div>
         </div>
         {renderAccounts()}

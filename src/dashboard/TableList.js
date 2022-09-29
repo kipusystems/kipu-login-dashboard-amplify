@@ -1,3 +1,5 @@
+import Header from './Header'
+
 function Table(props){
 
   var items = props.accounts.map(function(acct){
@@ -12,11 +14,12 @@ function Table(props){
   })
 
   return(
-    <div data-test="table-list" className="tw-p-8 tw-w-4/6 tw-mx-auto tw-border tw-rounded tw-shadow">
+    <div data-test="table-list" className="tw-p-8 tw-w-11/12 md:tw-w-4/6 tw-mx-auto tw-border tw-rounded tw-shadow">
+      <Header/>
       <table className="tw-table-auto tw-w-full">
         <thead>
           <tr className="tw-text-left tw-text-base tw-font-normal tw-border-b tw-relative">
-            <th className="tw-font-medium tw-p-2 tw-text-sm">Location Name </th> 
+            <th className="tw-font-medium tw-p-2 tw-text-sm">Location</th> 
             <th className="tw-font-normal tw-p-2 tw-text-sm"></th> 
           </tr>
         </thead>
