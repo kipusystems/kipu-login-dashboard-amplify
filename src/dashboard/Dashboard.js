@@ -6,17 +6,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { resetQueryResult } from '../features/accounts/querySlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
-import { updateLoadingStatus } from '../features/accounts/isLoadingSlice'
-
-
 import RefreshIcon from 'mdi-react/RefreshIcon';
 
 function Dashboard() {
 
-  const toggleValue = useSelector(state => state.toggle.value);
+  const toggleValue = useSelector(state => state.toggleView.value);
   const accounts = useSelector(state => state.accounts.value);
   const displayQueryAccounts = useSelector(state => state.showQueryResult.value);
-  const queryAccounts = useSelector(state => state.query.value);
+  const queryAccounts = useSelector(state => state.queryResult.value);
   const showMessage = useSelector(state => state.displayMessage.value);
   const offSetValues = useSelector(state => state.offset.value);
   const messageBody = useSelector(state => state.messageBody.value);

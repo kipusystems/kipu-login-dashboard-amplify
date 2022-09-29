@@ -9,7 +9,7 @@ import { updateLoadingStatus } from '../features/accounts/isLoadingSlice'
 function Header(){
 
   const currentUser = useSelector(state => state.user.value);
-  const toggleValue = useSelector(state => state.toggle.value);
+  const toggleValue = useSelector(state => state.toggleView.value);
   const dispatch = useDispatch();
 
   function toggleBtn(){
