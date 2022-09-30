@@ -53,7 +53,7 @@ describe('landing page', () => {
 
     //  checking if toggle button is present to switch views
     cy.get('button[role="switch"]').should('be.visible');
-    cy.get('button[role="switch"] + p').should('have.text','Card View')
+    cy.get('button[role="switch"] + p').should('have.text','Cards')
     
     //  checking if instances are visible  
     const list = cy.get('[data-test="table-list-item"]');
