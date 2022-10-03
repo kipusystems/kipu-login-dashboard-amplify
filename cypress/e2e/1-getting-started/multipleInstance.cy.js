@@ -43,25 +43,26 @@ describe('no instance dashboard page', () => {
     })
   
     it('Search component accessible', () => {
+        // ensure refresh button is present and clickable
+        cy.get('[data-test="refresh-button"]').should('be.visible');
+        cy.get('[data-test="refresh-button"]').should('be.enabled');
+
         // ensure search component is present 
-        cy.get('input[placeholder="Search"]').should('be.visible');
-        cy.get('input[placeholder="Search"]').type('No Result');
+        cy.get('input[placeholder="Search by Name"]').should('be.visible');
+        cy.get('input[placeholder="Search by Name"]').type('No Result');
         cy.get('[data-test="message-header"]').should('have.text', 'No results');
         
         // ensure reset search button is present
-        cy.get('[data-test="reset-search"]').should('be.visible');
+        cy.get('[data-test="reset-search"]').should('be.visible');       
+    })
 
-        // ensure search is functional
-        cy.get('input[placeholder="Search"]').clear().type('12', {force: true});
+    it('Search component with some results', () => {
+        cy.get('input[placeholder="Search by Name"]').clear().type('12', {force: true});
         cy.get('[data-test="table-list-item"]').should('have.length',1)
         const list = cy.get('[data-test="table-list-item"]');
         list.each((item)=> {
             cy.wrap(item).find('td').first().should('have.text','12 South')
         })
-
-        // ensure refresh button is present and clickable
-        cy.get('[data-test="refresh-button"]').should('be.visible');
-        cy.get('[data-test="refresh-button"]').should('be.enabled');
     })
 
     it('toggle switch is functional', () => {
