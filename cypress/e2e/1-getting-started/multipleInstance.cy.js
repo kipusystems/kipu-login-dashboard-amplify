@@ -32,7 +32,7 @@ describe('no instance dashboard page', () => {
 
     it('pagination link is functional', () => {
         const list = cy.get('[data-test="page-link"]');
-        list.each((index) => {
+        list.each((link,index) => {
             cy.get('[data-test="table-list"]').invoke('text').then( item => { 
                 cy.get('[data-test="page-link"]',{timeout: 20000}).eq(index).should('have.class','tw-bg-k-purple-600');
                 cy.get('[data-test="right-arrow"]').click();
