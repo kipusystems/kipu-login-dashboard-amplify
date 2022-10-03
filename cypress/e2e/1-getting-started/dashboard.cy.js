@@ -64,7 +64,7 @@ describe('landing page', () => {
     })
 
     // checking if launch link are working
-    cy.get('td a').each((item, index) => {
+    cy.get('td a').each((item) => {
       cy.request(item.prop('href'))
       cy.wrap(item).invoke('attr','target').should('eq','_blank')
     })
