@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { resetQueryResult } from '../features/accounts/querySlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
 import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
-import RefreshIcon from 'mdi-react/RefreshIcon';
 
 function Dashboard() {
 
