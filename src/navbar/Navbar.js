@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Auth } from 'aws-amplify';
 import Alerts from '../alert/Alerts'
 import { setAlert, resetAlert } from '../features/alerts/alertSlice'
+import Logo from '../assets/images/kipu-logo-white.png'
 
 function Navbar(){
 
@@ -22,7 +23,10 @@ function Navbar(){
 
   return (
     <div>
-      <header className="tw-bg-k-purple tw-py-5 tw-shadow-sm tw-mb-2 lg:tw-static lg:tw-overflow-y-visible">
+      <header className="tw-bg-k-purple tw-py-5 tw-shadow-sm tw-mb-2 tw-grid tw-grid-cols-2 lg:tw-static lg:tw-overflow-y-visible">
+        <div className="tw-mx-5 tw-my-auto">
+          <img alt="Kipu Health" className="tw-h-8" src={Logo} />
+        </div>
         <div className="tw-text-right tw-px-4">
           { currentUser.email === '' ? '' : <button data-test="sign-out" className="tw-inline-flex tw-justify-center tw-px-4 tw-border-2 tw-border-transparent tw-font-semibold tw-rounded-full tw-uppercase hover:tw-cursor-pointer tw-text-sm tw-py-2 tw-text-white tw-bg-k-dark-blue active:tw-bg-k-dark-blue hover:tw-bg-k-true-blue focus:tw-outline-none focus:tw-bg-k-true-blue focus:tw-ring-2 focus:tw-ring-k-dark-blue disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" onClick={ signOut }>Sign Out</button>}  
         </div>

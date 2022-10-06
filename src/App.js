@@ -4,7 +4,7 @@ import Navbar from './navbar/Navbar'
 import Landing from './landing/Landing'
 import Dashboard from './dashboard/Dashboard'
 import { Auth, Hub } from 'aws-amplify';
-import styles from './assets/styles/styles.css'
+import './assets/styles/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser, resetUser } from './features/user/userSlice'
 import { updateAccounts, resetAccounts } from './features/accounts/accountSlice'
