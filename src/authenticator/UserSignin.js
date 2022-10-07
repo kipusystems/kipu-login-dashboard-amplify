@@ -3,7 +3,7 @@ import '@aws-amplify/ui-react/styles.css';
 
 import { Amplify } from "aws-amplify";
 
-import awsmobile from '../aws-exports.js';
+import awsmobile from '/src/aws-exports.js';
 Amplify.configure(awsmobile);
 
 function UserSignin() {
