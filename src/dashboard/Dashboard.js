@@ -49,11 +49,11 @@ function Dashboard() {
     }
     if(displayQueryAccounts){
       return(
-        toggleValue ? <CardList accounts={accountsToShow(queryAccounts)}/> : <TableList accounts={accountsToShow(queryAccounts)}/>
+        !toggleValue ? <CardList accounts={accountsToShow(queryAccounts)}/> : <TableList accounts={accountsToShow(queryAccounts)}/>
       )
     }else{
       return(
-        toggleValue ? <CardList accounts={accountsToShow(accounts)}/> : <TableList accounts={accountsToShow(accounts)}/>
+        !toggleValue ? <CardList accounts={accountsToShow(accounts)}/> : <TableList accounts={accountsToShow(accounts)}/>
       )
     }
   }
