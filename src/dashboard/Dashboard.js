@@ -2,6 +2,7 @@ import TableList from './TableList.js'
 import CardList from './CardList.js'
 import Pagination from '../pagination/Pagination.js'
 import Spinner from 'react-spinner-material';
+import Navbar from '../navbar/Navbar' 
 import { useSelector, useDispatch } from 'react-redux'
 import { resetQueryResult } from '../features/accounts/querySlice'
 import { displayMessage } from '../features/toggle/displayMessageSlice'
@@ -9,6 +10,7 @@ import { toggleQueryResult } from '../features/toggle/showQueryResultSlice'
 
 function Dashboard() {
 
+  const currentUser = useSelector(state => state.user.value);
   const toggleValue = useSelector(state => state.toggleView.value);
   const accounts = useSelector(state => state.accounts.value);
   const displayQueryAccounts = useSelector(state => state.showQueryResult.value);
@@ -23,7 +25,7 @@ function Dashboard() {
   function renderAccounts(){
     if(isLoading === true){
       return(
-        <div data-test="spinner" class="tw-w-1/3 md:tw-w-1/12 tw-mx-auto tw-px-5">
+        <div data-test="spinner" className="tw-w-1/3 md:tw-w-1/12 tw-mx-auto tw-px-5">
           <Spinner radius={90} color={"#501270"} stroke={5} visible={true} />
         </div>
       )
@@ -71,6 +73,7 @@ function Dashboard() {
 
   return (
     <div>
+      <Navbar currentUser={currentUser}/>
       <div className="tw-py-8 lg:tw-py-12 lg:tw-mx-12">
         <div className="tw-w-11/12 md:tw-w-4/6 tw-mx-auto tw-text-left tw-mb-4">
           <div className="tw-text-left">

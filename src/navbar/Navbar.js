@@ -2,7 +2,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Auth } from 'aws-amplify';
 import Alerts from '../alert/Alerts'
 import { setAlert, resetAlert } from '../features/alerts/alertSlice'
-import Logo from '../assets/images/kipu-logo-white.png'
+import Logo from '../assets/images/EMR-White.svg'
+// import Logo from '../assets/images/kipu-logo-white.png'
+// import Logo from '../assets/images/kipu-logo-white.png'
+// import Logo from '../assets/images/kipu-logo-white.png'
 
 function Navbar(){
 
