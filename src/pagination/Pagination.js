@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import ChevronLeft from 'mdi-react/ChevronLeftIcon';
-import ChevronRight from 'mdi-react/ChevronRightIcon';
-import MenuUp from 'mdi-react/MenuUpIcon';
-import MenuDown from 'mdi-react/MenuDownIcon';
+import { ChevronLeft } from '@material-ui/icons';
+import { ChevronRight } from '@material-ui/icons';
+import { ArrowDropUp } from '@material-ui/icons';
+import { ArrowDropDown } from '@material-ui/icons';
 import { useSelector, useDispatch } from 'react-redux'
 import { goToPage, nextPage, prevPage } from '../features/pagination/paginationSlice'
 import { updateRowsPerPage } from '../features/pagination/perPageSlice'
@@ -41,7 +41,7 @@ function Pagination() {
 
   function dropdownIcon(){
     return(
-      showList === true ? <MenuUp/> : <MenuDown/>
+      showList === true ? <ArrowDropUp/> : <ArrowDropDown/>
     )
   }
 
