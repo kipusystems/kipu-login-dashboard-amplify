@@ -49,7 +49,7 @@ describe('landing page', () => {
     
     //  checking if sign out button is visible after successfull sign in
     cy.get('[data-test="list-header"]',{timeout: 20000}).should('be.visible');
-    cy.get('button').contains('Sign Out').should('be.visible');
+    cy.get('[data-test="initial-logo"]').should('be.visible');
 
     //  checking if toggle button is present to switch views
     cy.get('button[role="switch"]').should('be.visible');
@@ -63,15 +63,18 @@ describe('landing page', () => {
       });
     })
 
-    // checking if launch link are working
-    cy.get('td a').each((item) => {
-      cy.request(item.prop('href'))
-      cy.wrap(item).invoke('attr','target').should('eq','_blank')
-    })
+    // // checking if launch link are working
+    // cy.get('td a').each((item) => {
+    //   cy.request(item.prop('href'))
+    //   cy.wrap(item).invoke('attr','target').should('eq','_blank')
+    // })
 
 
     //  checking the redirection to landing page after clicking sign out
-    cy.get('[data-test="sign-out"]').click();
+    cy.get('[data-test="initial-logo"]').click();
+    cy.get('[data-test="menu-list"]',{timeout: 20000}).should('be.visible');
+    cy.get('[data-test="Help"]',{timeout: 20000}).should('be.visible');
+    cy.get('[data-test="Sign Out"]').click();
     cy.get('input[name="username"]',{timeout: 20000}).should('be.visible');
     cy.get('button[type="submit"]').should('be.visible');
   })
