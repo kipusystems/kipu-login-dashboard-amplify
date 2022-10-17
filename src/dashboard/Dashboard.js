@@ -23,7 +23,7 @@ function Dashboard() {
   function renderAccounts(){
     if(isLoading === true){
       return(
-        <div data-test="spinner" class="tw-w-1/3 md:tw-w-1/12 tw-mx-auto tw-px-5">
+        <div data-test="spinner" className="tw-w-1/3 md:tw-w-1/12 tw-mx-auto tw-px-5">
           <Spinner radius={90} color={"#501270"} stroke={5} visible={true} />
         </div>
       )
