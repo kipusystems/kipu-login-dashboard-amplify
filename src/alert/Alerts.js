@@ -1,7 +1,5 @@
-// To envoke the Alert with content you need to import the setAlert function from alertSlice.js
-// Then dispatch the function with the Alert object. 
 import { useSelector, useDispatch } from 'react-redux';
-import CloseIcon from 'mdi-react/CloseIcon';
+import { Close } from '@material-ui/icons';
 import classNames from 'classnames';
 import { resetAlert } from '../features/alerts/alertSlice'
 
@@ -58,7 +56,7 @@ function Alerts() {
         <div className={classNames(notificaitonClass())}>
             <div className="tw-self-center">
               <span className="tw-leading-4">{alertBody}</span>
-              <CloseIcon onClick={() => dispatch(resetAlert())} className="tw-cursor-pointer tw-text-2xl tw-mr-4 tw-float-right"/>
+              <Close onClick={() => dispatch(resetAlert())} className="tw-cursor-pointer tw-text-2xl tw-mr-4 tw-float-right"/>
             </div>
         </div>
       )

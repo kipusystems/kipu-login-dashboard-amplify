@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import ChevronLeft from 'mdi-react/ChevronLeftIcon';
-import ChevronRight from 'mdi-react/ChevronRightIcon';
-import MenuUp from 'mdi-react/MenuUpIcon';
-import MenuDown from 'mdi-react/MenuDownIcon';
+import { ChevronLeft } from '@material-ui/icons';
+import { ChevronRight } from '@material-ui/icons';
+import { ArrowDropUp } from '@material-ui/icons';
+import { ArrowDropDown } from '@material-ui/icons';
 import { useSelector, useDispatch } from 'react-redux'
 import { goToPage, nextPage, prevPage } from '../features/pagination/paginationSlice'
 import { updateRowsPerPage } from '../features/pagination/perPageSlice'
@@ -41,7 +41,7 @@ function Pagination() {
 
   function dropdownIcon(){
     return(
-      showList === true ? <MenuUp/> : <MenuDown/>
+      showList === true ? <ArrowDropUp/> : <ArrowDropDown/>
     )
   }
 
@@ -58,7 +58,14 @@ function Pagination() {
   function dropdownList(){
     let opts = [5, 10, 25, 50, 100]
     let optionsForSelect = opts.map(x => 
-      <li className="tw-text-gray-900 tw-cursor-default tw-select-none tw-relative tw-py-2 tw-px-4 tw-m-0 hover:tw-bg-k-purple-500 hover:tw-text-white" onClick={() => dispatch(updateRowsPerPage(x))} key={x}>
+      <li className="tw-text-gray-900 tw-cursor-default tw-select-none tw-relative tw-py-2 tw-px-4 tw-m-0 hover:tw-bg-k-purple-500 hover:tw-text-white" 
+        key={x}
+        onClick={() => {
+          const lastPage = Math.ceil(totalAccounts/x);
+          dispatch(updateRowsPerPage(x));
+          if(currentPage > lastPage) dispatch(goToPage(lastPage));
+        }} 
+      >
         <span className={classNames({
           'tw-block': true,
           'tw-truncate': true,
@@ -158,7 +165,7 @@ function Pagination() {
   }
 
   function endCountNumber(){
-    return offSetValues.end > totalAccounts ? '' : ` - ${offSetValues.end}`
+    return offSetValues.end > totalAccounts ? ` - ${totalAccounts}` : ` - ${offSetValues.end}`
   }
 
   useEffect(() => {

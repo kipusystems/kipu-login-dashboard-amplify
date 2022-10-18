@@ -108,17 +108,18 @@ module.exports = {
         },        
 
         'k-purple': {
-          DEFAULT: '#501270',
+          DEFAULT: '#6C18C9',
           50: '#f6f3f8',
           100: '#eee7f1',
           200: '#d3c4db',
           300: '#b9a0c6',
           400: '#85599b',
-          500: '#501270',
+          500: '#6C18C9',
           600: '#481065',
           700: '#3c0e54',
           800: '#300b43',
           900: '#270937',
+          950: '#73418d'
         },
 
         'k-red': {
@@ -189,6 +190,7 @@ module.exports = {
           700: '#999999',
           800: '#7a7a7a',
           900: '#666666',
+          950: '#eeeeee'
         },
 
         brand: withOpacityValue('--theme-color-brand'),
@@ -214,6 +216,22 @@ module.exports = {
         'kipu-sky-gray-two': '#F0F0F0', //Deprecated use k-gray-200
         'kipu-sky-gray-three': '#F5F7F9', //Deprecated use k-gray-100
       },
+      spacing: {
+        '13': '160px',
+        'px-3.25': '3.25px',
+        'px-39': '39.63px',
+        'px-19': '19px',
+        'px-23.6': '23.63px'
+      },
+      fontFamily: {
+        'k-sans': ['Roboto','sans-serif']
+      },
+      borderRadius: {
+        round: '50%'
+      },
+      translate: {
+        'r-1/2': '-50%'
+      }
     },
   },
   plugins: [],

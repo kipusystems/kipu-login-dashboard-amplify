@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import Navbar from './navbar/Navbar' 
 import Landing from './landing/Landing'
 import Dashboard from './dashboard/Dashboard'
 import { Auth, Hub } from 'aws-amplify';
-import styles from './assets/styles/styles.css'
+import './assets/styles/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser, resetUser } from './features/user/userSlice'
 import { updateAccounts, resetAccounts } from './features/accounts/accountSlice'
@@ -83,6 +82,7 @@ function App(){
     setCookie('KIPU_SSO_ID_TOKEN', idToken);
     setCookie('KIPU_SSO_ACCES_TOKEN', accessToken);
     setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
+    setCookie('domain', '.kipuworks.com');
   }
 
   useEffect(() => {
@@ -97,7 +97,6 @@ function App(){
 
   return (
     <div className="App">
-      <Navbar currentUser={currentUser}/>
       { currentUser.email === '' ? <Landing/> : <Dashboard/>}
     </div>
   );
