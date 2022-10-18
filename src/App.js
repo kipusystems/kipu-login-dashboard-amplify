@@ -83,7 +83,7 @@ function App(){
     setCookie('KIPU_SSO_ACCES_TOKEN', accessToken);
     setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
     setCookie('domain', '.kipuworks.com');
-    setCookie('path', '/users/sign_in');
+    setCookie('path', '/');
   }
 
   useEffect(() => {
