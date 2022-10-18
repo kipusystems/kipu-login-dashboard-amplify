@@ -1,5 +1,3 @@
-// To envoke the Alert with content you need to import the setAlert function from alertSlice.js
-// Then dispatch the function with the Alert object. 
 import { useSelector, useDispatch } from 'react-redux';
 import { Close } from '@material-ui/icons';
 import classNames from 'classnames';
