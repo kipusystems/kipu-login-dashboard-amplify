@@ -81,7 +81,7 @@ function Dashboard() {
           </div>
         </div>
         {renderAccounts()}
-        {renderPagination()}
+        {accounts.length > 0 && renderPagination()}
       </div>
     </div>
   )
