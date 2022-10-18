@@ -45,6 +45,7 @@ function Navbar(){
     let optionsForSelect = opts.map((x,index) => 
       <div key={index}>
         <li 
+        data-test={opts[index]}
         className="tw-text-black tw-cursor-pointer tw-select-none tw-font-k-sans tw-h-11 tw-mb-1 tw-relative tw-mr-1  tw-text-left tw-py-2.5 tw-px-2 tw-m-0 hover:tw-bg-k-gray-950"
         onClick={()=>{handleOptions(index)}}
         >
@@ -61,7 +62,7 @@ function Navbar(){
     if(showOptions === true){
       return(
         <div>
-          <ul tabIndex="-1" role="listbox" ref={ref} aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3" className="tw-absolute tw-border-1 tw-right-7 tw-list-none tw-z-10 tw-top-auto tw-w-13 tw-bg-white tw-shadow-lg tw-max-h-60 tw-rounded-md tw-text-base tw-ring-1 tw-ring-black tw-ring-opacity-5 tw-overflow-auto focus:tw-outline-none sm:tw-text-sm">
+          <ul data-test="menu-list" tabIndex="-1" role="listbox" ref={ref} aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3" className="tw-absolute tw-border-1 tw-right-7 tw-list-none tw-z-10 tw-top-auto tw-w-13 tw-bg-white tw-shadow-lg tw-max-h-60 tw-rounded-md tw-text-base tw-ring-1 tw-ring-black tw-ring-opacity-5 tw-overflow-auto focus:tw-outline-none sm:tw-text-sm">
             {optionsForSelect}
           </ul>
         </div>
@@ -99,7 +100,7 @@ function Navbar(){
           <img alt="Kipu Health" className="tw-h-8" src={Logo} />
         </div>
         <div className="tw-flex tw-items-center tw-justify-end tw-text-right tw-py-3 tw-pr-6">
-          { currentUser.email === '' ? '' : <div type="button" data-test="sign-out" className="tw-rounded-round tw-relative tw-w-px-39 tw-h-9 tw-py-px-3.25 tw-px-1.5 tw-border-2 tw-border-white  tw-font-k-sans tw-uppercase hover:tw-cursor-pointer tw-text-white  active:tw-bg-k-purple hover:tw-bg-k-purple-950 disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" onClick={ toggleList }>
+          { currentUser.email === '' ? '' : <div type="button" data-test="initial-logo" className="tw-rounded-round tw-relative tw-w-px-39 tw-h-9 tw-py-px-3.25 tw-px-1.5 tw-border-2 tw-border-white  tw-font-k-sans tw-uppercase hover:tw-cursor-pointer tw-text-white  active:tw-bg-k-purple hover:tw-bg-k-purple-950 disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" onClick={ toggleList }>
               <div className=' tw-absolute tw-m-0   tw-top-1/2 tw-translate-y-r-1/2 tw-items-center tw-flex tw-justify-center '>
                 <span className='tw-w-px-23.6 tw-h-px-19 tw-flex tw-items-center tw-justify-center'>{currentUser.initials}</span>
               </div>
