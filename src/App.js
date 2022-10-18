@@ -66,7 +66,7 @@ function App(){
   };
 
   function setCookie(id, value){
-    document.cookie = `${id}=${value};`;
+    document.cookie = `${id}=${value}; domain=kipuworks.com`;
   }
 
   function deleteCookies(){
@@ -82,8 +82,6 @@ function App(){
     setCookie('KIPU_SSO_ID_TOKEN', idToken);
     setCookie('KIPU_SSO_ACCES_TOKEN', accessToken);
     setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
-    setCookie('domain', '.kipuworks.com');
-    setCookie('path', '/');
   }
 
   useEffect(() => {
