@@ -2,9 +2,6 @@
 
 describe('landing page', () => {
 
-  // const locations = ['Atlanta Recovery Place', 'Family First Adolescent Services', 'House of Freedom', 'Illumination Foundation', 'Daybreak Treatment Solutions ',
-  //                   'ClearVision Health and Wellness', 'Second Chance Recovery Center']; 
-
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -53,9 +50,10 @@ describe('landing page', () => {
 
     //  checking if toggle button is present to switch views
     cy.get('button[role="switch"]').should('be.visible');
-    cy.get('button[role="switch"] + p').should('have.text','Cards')
+    cy.get('button[role="switch"] + p').should('have.text','Table')
     
     //  checking if instances are visible  
+    cy.get('button[role="switch"]').click(); 
     const list = cy.get('[data-test="table-list-item"]');
     list.each((item,index)=> {
       cy.wrap(item).find('td').first().invoke('text').then(text=> {
