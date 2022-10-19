@@ -16,7 +16,9 @@ describe('Redux store testing', () => {
         // checking whether spinner is present before list is rendeered
         cy.get('[data-test="spinner"').should('be.visible')
         cy.get('[data-test="spinner"',{timeout:20000}).should('not.exist')
-        cy.get('[data-test="table-list"]',{timeout: 20000}).should('be.visible'); 
+        cy.get('[data-test="card-list"]',{timeout: 20000}).should('be.visible'); 
+
+        cy.get('button[role="switch"]').click(); 
 
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false
