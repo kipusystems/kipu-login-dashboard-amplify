@@ -7,18 +7,17 @@
     "email",
     "phone_number"
   ],
+  "authProvidersUserPool": [],
   "requiredAttributes": [
     "email"
   ],
   "passwordPolicyMinLength": 8,
-  "passwordPolicyCharacters": [
-    "Requires Lowercase",
-    "Requires Uppercase",
-    "Requires Numbers"
-  ],
-  "mfaConfiguration": "OFF",
+  "passwordPolicyCharacters": [],
+  "mfaConfiguration": "OPTIONAL",
   "autoVerifiedAttributes": [
     "email"
   ],
-  "mfaTypes": []
+  "mfaTypes": [
+    "SMS Text Message"
+  ]
 }
