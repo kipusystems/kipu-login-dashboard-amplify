@@ -5,6 +5,7 @@ import { HelpOutline } from '@material-ui/icons'
 import { setAlert, resetAlert } from '../features/alerts/alertSlice'
 import Logo from '../assets/images/EMR-White.svg'
 import { useState, useEffect, useRef } from 'react';
+import { zendeskLink } from '../functions/Zendesk'
 
 function Navbar(){
 
@@ -17,18 +18,18 @@ function Navbar(){
                         visible: true}
   const ref = useRef(null);
 
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      onClickOutside && onClickOutside(event);
+    } 
+  };
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [handleClickOutside]);
-
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      onClickOutside && onClickOutside(event);
-    } 
-  };
 
   const onClickOutside = (e) => {
     setListening(true);
@@ -90,7 +91,7 @@ function Navbar(){
   }
 
   function help() {
-    // redirect for help
+    window.open(zendeskLink(currentUser), '_blank');
   }
 
   return (
