@@ -34,5 +34,28 @@
       "StackId": "arn:aws:cloudformation:us-east-1:633233947399:stack/amplify-kipulogindashboardam-dev-101712/cc3fede0-0d06-11ed-8217-0a91907fb04d",
       "AmplifyAppId": "d2omnw3juoreyi"
     }
+  },
+  "cognitoqa": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kipulogindashboardam-cognitoqa-141453-authRole",
+      "UnauthRoleArn": "arn:aws:iam::521386070254:role/amplify-kipulogindashboardam-cognitoqa-141453-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::521386070254:role/amplify-kipulogindashboardam-cognitoqa-141453-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kipulogindashboardam-cognitoqa-141453-deployment",
+      "UnauthRoleName": "amplify-kipulogindashboardam-cognitoqa-141453-unauthRole",
+      "StackName": "amplify-kipulogindashboardam-cognitoqa-141453",
+      "StackId": "arn:aws:cloudformation:us-east-1:521386070254:stack/amplify-kipulogindashboardam-cognitoqa-141453/14d257d0-4ff3-11ed-88e6-0a96979592a5",
+      "AmplifyAppId": "d37t4d4wvxrfqu"
+    },
+    "categories": {
+      "auth": {
+        "kipulogindashboardam860f98f0": {
+          "userPoolId": "us-east-1_znIskIILj",
+          "userPoolName": "kipu-default-user-pool",
+          "webClientId": "7825qs9tvquvm22ndl0qmsrcfb",
+          "nativeClientId": "6nculhoj638qtn6nrbflfgt43v"
+        }
+      }
+    }
   }
 }
