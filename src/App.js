@@ -48,13 +48,13 @@ function App(){
   async function setAccounts(){
     await accountFetcher(currentUser).then(result => {
       let data = result.data
-      if(data.accounts == null) {
+      let accounts = data.accounts
+      if(accounts == null) {
         dispatch(updateLoadingStatus(false))
         dispatch(displayMessage(true));
         dispatch(messageBody('You do not have access to any accounts. Please contact your administrator'));
         return true
       }
-      let accounts = data.accounts
       if(accounts.length === 1){ return goToURL(accounts[0]) }
       if(accounts.length > 1){ 
         dispatch(displayMessage(false));
@@ -66,7 +66,7 @@ function App(){
   };
 
   function setCookie(id, value){
-    document.cookie = `${id}=${value}; domain=kipuworks.com`;
+    document.cookie = `${id}=${value}; domain=*kipuworks.com`;
   }
 
   function deleteCookies(){
@@ -76,6 +76,7 @@ function App(){
   }
 
   function assignCookies(data){
+    console.log(data.accessToken.jwtToken)
     var idToken = data.idToken.jwtToken;
     var accessToken = data.accessToken.jwtToken;
     var refreshToken = data.refreshToken.token;
