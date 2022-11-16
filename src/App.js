@@ -66,6 +66,8 @@ function App(){
   };
 
   function setCookie(id, value){
+    console.log('setting cookie -> ', id)
+    console.log('with value of -> ', value)
     document.cookie = `${id}=${value}; domain=kipuworks.com`;
   }
 
@@ -76,7 +78,6 @@ function App(){
   }
 
   function assignCookies(data){
-    console.log(data.accessToken.jwtToken)
     var idToken = data.idToken.jwtToken;
     var accessToken = data.accessToken.jwtToken;
     var refreshToken = data.refreshToken.token;
