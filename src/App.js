@@ -66,7 +66,7 @@ function App(){
   };
 
   function setCookie(id, value){
-    document.cookie = `${id}=${value}; domain=*kipuworks.com`;
+    document.cookie = `${id}=${value}; domain=kipuworks.com`;
   }
 
   function deleteCookies(){
