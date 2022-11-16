@@ -68,7 +68,8 @@ function App(){
   function setCookie(id, value){
     console.log('setting cookie -> ', id)
     console.log('with value of -> ', value)
-    document.cookie = `${id}=${value}; domain=kipuworks.com`;
+    let cookie = `${id}=${value};domain=kipuworks.com`
+    document.cookie = cookie;
   }
 
   function deleteCookies(){
