@@ -1,0 +1,24 @@
+{
+  "authSelections": "identityPoolAndUserPool",
+  "resourceName": "kipulogindashboardam36964b28",
+  "serviceType": "imported",
+  "region": "us-east-1",
+  "usernameAttributes": [
+    "email",
+    "phone_number"
+  ],
+  "requiredAttributes": [
+    "email"
+  ],
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [
+    "Requires Lowercase",
+    "Requires Uppercase",
+    "Requires Numbers"
+  ],
+  "mfaConfiguration": "OFF",
+  "autoVerifiedAttributes": [
+    "email"
+  ],
+  "mfaTypes": []
+}

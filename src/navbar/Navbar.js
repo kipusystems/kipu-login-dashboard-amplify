@@ -102,7 +102,7 @@ function Navbar(){
         </div>
         <div className="tw-flex tw-items-center tw-justify-end tw-text-right tw-py-3 tw-pr-6">
           { currentUser.email === '' ? '' : <div type="button" data-test="initial-logo" className="tw-rounded-round tw-relative tw-w-px-39 tw-h-9 tw-py-px-3.25 tw-px-1.5 tw-border-2 tw-border-white  tw-font-k-sans tw-uppercase hover:tw-cursor-pointer tw-text-white  active:tw-bg-k-purple hover:tw-bg-k-purple-950 disabled:tw-bg-k-gray-300 disabled:tw-text-k-gray-700 tw-shadow-md" onClick={ toggleList }>
-              <div className=' tw-absolute tw-m-0   tw-top-1/2 tw-translate-y-r-1/2 tw-items-center tw-flex tw-justify-center '>
+              <div className=' tw-absolute tw-m-0 tw-top-1/2 tw-translate-y-r-1/2 tw-items-center tw-flex tw-justify-center'>
                 <span className='tw-w-px-23.6 tw-h-px-19 tw-flex tw-items-center tw-justify-center'>{currentUser.initials}</span>
               </div>
             </div> 
