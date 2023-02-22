@@ -66,8 +66,6 @@ function App(){
   };
 
   function setCookie(id, value){
-    console.log('setting cookie -> ', id)
-    console.log('with value of -> ', value)
     let cookie = `${id}=${value};`
     document.cookie = cookie;
   }
