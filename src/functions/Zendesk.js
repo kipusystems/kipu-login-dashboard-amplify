@@ -35,10 +35,8 @@ export async function zendeskLink(user){
   .setExpirationTime('2h')
   .sign(secret).then(token => {
       if (process.env.REACT_APP_ZENDESK_SUBDOMAIN && token){
-        console.log('yes')
         return `https://${process.env.REACT_APP_ZENDESK_SUBDOMAIN}.zendesk.com/access/jwt?jwt=${token}`
       }else{
-        console.log('no')
         return ""
       }
     }
