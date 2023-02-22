@@ -91,7 +91,9 @@ function Navbar(){
   }
 
   function help() {
-    window.open(zendeskLink(currentUser), '_blank');
+    zendeskLink(currentUser).then(link => {
+      window.open(link, '_blank');
+    })
   }
 
   return (

@@ -45,12 +45,6 @@ function Pagination() {
     )
   }
 
-  function setOffsetValues(){
-    let indexStart = perPage * (currentPage -1)
-    let indexEnd = indexStart + perPage
-    return dispatch(updateOffsetValues({start: indexStart, end: indexEnd}))
-  }
-
   function highlightPage(selection){
     return selection === perPage
   }
@@ -169,8 +163,15 @@ function Pagination() {
   }
 
   useEffect(() => {
+    const setOffsetValues = () => {
+      let indexStart = perPage * (currentPage -1)
+      let indexEnd = indexStart + perPage
+      return dispatch(updateOffsetValues({start: indexStart, end: indexEnd}))
+    }
+
     setOffsetValues();
-  }, [perPage, currentPage]);
+    
+  }, [perPage, currentPage, dispatch]);
 
   return (
     <div className="xs:tw-flex-col md:tw-flex tw-items-center tw-w-full tw-mx-auto tw-mt-4 md:tw-space-x-8 md:tw-place-content-end md:tw-w-4/6">
