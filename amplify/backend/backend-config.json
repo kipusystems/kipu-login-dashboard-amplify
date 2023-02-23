@@ -1,11 +1,101 @@
 {
   "auth": {
-    "kipulogindashboardam860f98f0": {
-      "service": "Cognito",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
+    "kipulogindashboardam36964b28": {
+      "customAuth": false,
       "dependsOn": [],
-      "customAuth": false
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_kipulogindashboardam36964b28_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
+    },
+    "AMPLIFY_auth_kipulogindashboardam36964b28_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "kipulogindashboardam36964b28"
+        }
+      ]
     }
   }
 }

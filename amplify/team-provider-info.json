@@ -10,16 +10,6 @@
       "StackName": "amplify-kipulogindashboardam-feature-182549",
       "StackId": "arn:aws:cloudformation:us-east-1:633233947399:stack/amplify-kipulogindashboardam-feature-182549/104633f0-0f50-11ed-bb15-0eba1d80eb9b",
       "AmplifyAppId": "d2omnw3juoreyi"
-    },
-    "categories": {
-      "auth": {
-        "kipulogindashboardam860f98f0": {
-          "userPoolId": "us-east-1_4LqXhppJy",
-          "userPoolName": "user-management-api-dev",
-          "webClientId": "3vv208bbunc14ubjf5q4avaf8p",
-          "nativeClientId": "3vv208bbunc14ubjf5q4avaf8p"
-        }
-      }
     }
   },
   "dev": {
@@ -54,6 +44,36 @@
           "userPoolName": "kipu-default-user-pool",
           "webClientId": "7825qs9tvquvm22ndl0qmsrcfb",
           "nativeClientId": "6nculhoj638qtn6nrbflfgt43v"
+        }
+      }
+    }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kipulogindashboardam-develop-151956-authRole",
+      "UnauthRoleArn": "arn:aws:iam::633233947399:role/amplify-kipulogindashboardam-develop-151956-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::633233947399:role/amplify-kipulogindashboardam-develop-151956-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kipulogindashboardam-develop-151956-deployment",
+      "UnauthRoleName": "amplify-kipulogindashboardam-develop-151956-unauthRole",
+      "StackName": "amplify-kipulogindashboardam-develop-151956",
+      "StackId": "arn:aws:cloudformation:us-east-1:633233947399:stack/amplify-kipulogindashboardam-develop-151956/45a63da0-a8d0-11ed-84f5-0aca7a541685",
+      "AmplifyAppId": "d2omnw3juoreyi"
+    },
+    "categories": {
+      "auth": {
+        "kipulogindashboardam36964b28": {
+          "userPoolId": "us-east-1_4LqXhppJy",
+          "userPoolName": "user-management-api-dev",
+          "webClientId": "3vv208bbunc14ubjf5q4avaf8p",
+          "nativeClientId": "4rc4pjtjt0t6sehm54m2ri94j3",
+          "identityPoolId": "us-east-1:3f1b2e8e-f48d-4c12-987f-6d1491b7bee0",
+          "identityPoolName": "Login Dashboard",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::633233947399:role/Cognito_LoginDashboardAuth_Role",
+          "authRoleName": "Cognito_LoginDashboardAuth_Role",
+          "unauthRoleArn": "arn:aws:iam::633233947399:role/Cognito_LoginDashboardUnauth_Role",
+          "unauthRoleName": "Cognito_LoginDashboardUnauth_Role"
         }
       }
     }

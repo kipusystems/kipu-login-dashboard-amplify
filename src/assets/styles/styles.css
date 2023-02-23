@@ -50,7 +50,7 @@ div[data-amplify-router]{
 
 .zone3-bg-image-0 {
   background-image: url('../images/zone3-bg1.jpg') !important;
-  display: block;
+  display: block !important;
 }
 
 .zone3-bg-image-1 {
@@ -61,4 +61,61 @@ div[data-amplify-router]{
 .zone3-bg-image-2 {
   background-image: url('../images/zone3-bg3.jpg') !important;
   display: block;
+}
+
+.mob-to-hide {
+  padding-left: 1em;
+  display: flex;
+  float: initial;
+  flex-direction: column;
+  max-width: 50%;
+  align-items: center;
+}
+
+#mob-to-hide-img img {
+  width: 520px !important;
+}
+
+.zone1 {
+  width: 520px;
+  height: 450px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.zone2 {
+  margin-top: 30px;
+  height: 110px;
+  display: inline-block;
+  width: 520px;
+  height: 450px;
+}
+.zone3 {
+  height: 560px;
+  width: 520px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* $drop-banner-width = 991px */
+@media screen and (max-width: 991px) {
+  .mob-to-hide{
+    display: none;
+  }
+}
+/* $medium-screen: 768px; */
+@media screen and (max-width: 768px) {
+  .mob-to-hide{
+    height: 70vh !important;
+  }
+  .mob-to-hide > img {
+    width: 100%
+  }
+}
+@media screen and (max-height: 768px) {
+  #banner {
+    display: none;
+  }
 }

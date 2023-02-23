@@ -1,4 +1,4 @@
-import JWT from 'expo-jwt';
+import * as jose from 'jose'
 
 function hex(n){
   n = n || 16;
@@ -25,12 +25,21 @@ function payload(user){
   }
 }
 
-export function zendeskLink(user){
-  const jwtToken = JWT.encode(payload(user), process.env.REACT_APP_ZENDESK_SHARED_SECRET)
-
-  if (process.env.REACT_APP_ZENDESK_SUBDOMAIN && jwtToken){
-    return `https://${process.env.REACT_APP_ZENDESK_SUBDOMAIN}.zendesk.com/access/jwt?jwt=${jwtToken}`
-  }else{
-    return ""
-  }
+export async function zendeskLink(user){
+  const alg = 'HS256'
+  const secret = new TextEncoder().encode(
+    process.env.REACT_APP_ZENDESK_SHARED_SECRET,
+  )
+  const link = new jose.SignJWT(payload(user))
+  .setProtectedHeader({ alg })
+  .setExpirationTime('2h')
+  .sign(secret).then(token => {
+      if (process.env.REACT_APP_ZENDESK_SUBDOMAIN && token){
+        return `https://${process.env.REACT_APP_ZENDESK_SUBDOMAIN}.zendesk.com/access/jwt?jwt=${token}`
+      }else{
+        return ""
+      }
+    }
+  )
+  return link
 }
