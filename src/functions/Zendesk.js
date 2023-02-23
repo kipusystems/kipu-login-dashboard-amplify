@@ -10,6 +10,7 @@ function hex(n){
 }
 
 function payload(user){
+  console.log('user -> ', user)
   if (process.env.REACT_APP_ZENDESK_SHARED_SECRET) {
     let iat = Date.now()
     let jti = `${iat}/${hex(18)}`
@@ -30,6 +31,7 @@ export async function zendeskLink(user){
   const secret = new TextEncoder().encode(
     process.env.REACT_APP_ZENDESK_SHARED_SECRET,
   )
+  console.log('payload(user) -> ', payload(user))
   const link = new jose.SignJWT(payload(user))
   .setProtectedHeader({ alg })
   .setExpirationTime('2h')
