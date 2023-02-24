@@ -11,6 +11,7 @@ function hex(n){
 
 function payload(user){
   console.log('user -> ', user)
+  console.log('secret -> ', process.env.REACT_APP_ZENDESK_SHARED_SECRET)
   if (process.env.REACT_APP_ZENDESK_SHARED_SECRET) {
     let iat = Date.now()
     let jti = `${iat}/${hex(18)}`
