@@ -65,8 +65,18 @@ function App(){
     });
   };
 
+  function getDomain() {
+    var url = window.location.origin.replace(/(https?:\/\/)?(www.)?/i, '');
+    url = url.split('.');
+    url = url.slice(url.length - 2).join('.');
+    return url;
+  }
+  
   function setCookie(id, value){
-    let cookie = `${id}=${value};`
+    console.log('runing set cookie')
+    let domain = getDomain()
+    console.log('domain -> ', domain)
+    let cookie = `${id}=${value}; domain=${domain}`
     document.cookie = cookie;
   }
 
