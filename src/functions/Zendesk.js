@@ -30,7 +30,7 @@ export async function zendeskLink(user){
   const secret = new TextEncoder().encode(
     process.env.REACT_APP_ZENDESK_SHARED_SECRET,
   )
-  const link = new jose.SignJWT(payload(user))
+  const link = await new jose.SignJWT(payload(user))
   .setProtectedHeader({ alg })
   .setExpirationTime('2h')
   .sign(secret).then(token => {
@@ -41,5 +41,6 @@ export async function zendeskLink(user){
       }
     }
   )
+  
   return link
 }
