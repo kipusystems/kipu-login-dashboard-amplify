@@ -35,7 +35,7 @@ export async function zendeskLink(user){
   .setExpirationTime('2h')
   .sign(secret).then(token => {
       console.log('process.env.REACT_APP_ZENDESK_SUBDOMAIN -> ', process.env.REACT_APP_ZENDESK_SUBDOMAIN)
-      console.log('process.env.REACT_APP_KIPU_VERSION -> ', process.env.REACT_APP_KIPU_VERSION)
+      console.log('process.env.REACT_APP_ZENDESK_SHARED_SECRET -> ', process.env.REACT_APP_ZENDESK_SHARED_SECRET)
       console.log('token -> ', token)
       if (process.env.REACT_APP_ZENDESK_SUBDOMAIN && token){
         console.log('yes')
