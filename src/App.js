@@ -73,9 +73,7 @@ function App(){
   }
   
   function setCookie(id, value){
-    console.log('runing set cookie')
     let domain = getDomain()
-    console.log('domain -> ', domain)
     let cookie = `${id}=${value}; domain=${domain}`
     document.cookie = cookie;
   }
@@ -93,6 +91,7 @@ function App(){
     setCookie('KIPU_SSO_ID_TOKEN', idToken);
     setCookie('KIPU_SSO_ACCES_TOKEN', accessToken);
     setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
+    document.cookie = `tester=mario_a; Domain=${getDomain()};`;
   }
 
   useEffect(() => {
