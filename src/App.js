@@ -79,9 +79,9 @@ function App(){
   }
 
   function deleteCookies(){
-    document.cookie = "KIPU_SSO_ID_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
-    document.cookie = "KIPU_SSO_ACCES_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
-    document.cookie = "KIPU_SSO_REFRESH_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+    document.cookie = "KIPU_SSO_ID_TOKEN=; max-age=0";
+    document.cookie = "KIPU_SSO_ACCES_TOKEN=; max-age=0";
+    document.cookie = "KIPU_SSO_REFRESH_TOKEN=; Max-Age=0";
   }
 
   function assignCookies(data){
