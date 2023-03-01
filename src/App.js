@@ -79,6 +79,7 @@ function App(){
   }
 
   function deleteCookies(){
+    console.log('deleting cookies')
     document.cookie = "KIPU_SSO_ID_TOKEN=; max-age=0";
     document.cookie = "KIPU_SSO_ACCES_TOKEN=; max-age=0";
     document.cookie = "KIPU_SSO_REFRESH_TOKEN=; Max-Age=0";
