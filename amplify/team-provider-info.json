@@ -50,32 +50,15 @@
   },
   "develop": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-kipulogindashboardam-develop-151956-authRole",
-      "UnauthRoleArn": "arn:aws:iam::633233947399:role/amplify-kipulogindashboardam-develop-151956-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::633233947399:role/amplify-kipulogindashboardam-develop-151956-authRole",
+      "AuthRoleName": "amplify-kipulogindashboardam-develop-233844-authRole",
+      "UnauthRoleArn": "arn:aws:iam::060255825268:role/amplify-kipulogindashboardam-develop-233844-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::060255825268:role/amplify-kipulogindashboardam-develop-233844-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-kipulogindashboardam-develop-151956-deployment",
-      "UnauthRoleName": "amplify-kipulogindashboardam-develop-151956-unauthRole",
-      "StackName": "amplify-kipulogindashboardam-develop-151956",
-      "StackId": "arn:aws:cloudformation:us-east-1:633233947399:stack/amplify-kipulogindashboardam-develop-151956/45a63da0-a8d0-11ed-84f5-0aca7a541685",
-      "AmplifyAppId": "d2omnw3juoreyi"
-    },
-    "categories": {
-      "auth": {
-        "kipulogindashboardam36964b28": {
-          "userPoolId": "us-east-1_4LqXhppJy",
-          "userPoolName": "user-management-api-dev",
-          "webClientId": "3vv208bbunc14ubjf5q4avaf8p",
-          "nativeClientId": "4rc4pjtjt0t6sehm54m2ri94j3",
-          "identityPoolId": "us-east-1:3f1b2e8e-f48d-4c12-987f-6d1491b7bee0",
-          "identityPoolName": "Login Dashboard",
-          "allowUnauthenticatedIdentities": false,
-          "authRoleArn": "arn:aws:iam::633233947399:role/Cognito_LoginDashboardAuth_Role",
-          "authRoleName": "Cognito_LoginDashboardAuth_Role",
-          "unauthRoleArn": "arn:aws:iam::633233947399:role/Cognito_LoginDashboardUnauth_Role",
-          "unauthRoleName": "Cognito_LoginDashboardUnauth_Role"
-        }
-      }
+      "DeploymentBucketName": "amplify-kipulogindashboardam-develop-233844-deployment",
+      "UnauthRoleName": "amplify-kipulogindashboardam-develop-233844-unauthRole",
+      "StackName": "amplify-kipulogindashboardam-develop-233844",
+      "StackId": "arn:aws:cloudformation:us-east-1:060255825268:stack/amplify-kipulogindashboardam-develop-233844/6d3567b0-ccca-11ed-8608-122ec804057b",
+      "AmplifyAppId": "d32tghxom9ky1u"
     }
   }
 }
