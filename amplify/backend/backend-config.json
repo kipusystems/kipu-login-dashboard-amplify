@@ -28,7 +28,7 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_kipulogindashboardam25145387_cognitoArn": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_AppClientID": {
       "usedBy": [
         {
           "category": "auth",
@@ -36,7 +36,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_cognitoClientId": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_AppClientIDWeb": {
       "usedBy": [
         {
           "category": "auth",
@@ -44,7 +44,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_provider": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_IdentityPoolId": {
       "usedBy": [
         {
           "category": "auth",
@@ -52,7 +52,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_providerPlugin": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_IdentityPoolName": {
       "usedBy": [
         {
           "category": "auth",
@@ -60,7 +60,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_region": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_UserPoolArn": {
       "usedBy": [
         {
           "category": "auth",
@@ -68,7 +68,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_service": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_UserPoolId": {
       "usedBy": [
         {
           "category": "auth",
@@ -76,15 +76,7 @@
         }
       ]
     },
-    "AMPLIFY_auth_kipulogindashboardam25145387_userPoolId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "kipulogindashboardam25145387"
-        }
-      ]
-    },
-    "AMPLIFY_auth_kipulogindashboardam25145387_userPoolName": {
+    "AMPLIFY_auth_kipulogindashboardam25145387_UserPoolName": {
       "usedBy": [
         {
           "category": "auth",
