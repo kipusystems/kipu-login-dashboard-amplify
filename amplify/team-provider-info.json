@@ -66,11 +66,11 @@
           "service": "Cognito",
           "providerPlugin": "awscloudformation",
           "provider": "awscloudformation",
-          "userPoolId": "us-east-1_4LqXhppJy",
-          "userPoolName": "user-management-api-dev",
+          "userPoolId": "us-east-1_JxD8JAQ6K",
+          "userPoolName": "kipulogindashboardam25145387_userpool_25145387-develop",
           "region": "us-east-1",
-          "cognitoArn": "arn:aws:cognito-idp:us-east-1:633233947399:userpool/us-east-1_4LqXhppJy",
-          "cognitoClientId": "3vv208bbunc14ubjf5q4avaf8p"
+          "cognitoArn": "arn:aws:cognito-idp:us-east-1:060255825268:userpool/us-east-1_JxD8JAQ6K",
+          "cognitoClientId": "4m325qup2g1tsf8ij8gcbqus4h"
         }
       }
     }
