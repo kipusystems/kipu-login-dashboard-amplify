@@ -62,7 +62,16 @@
     },
     "categories": {
       "auth": {
-        "kipulogindashboardam25145387": {}
+        "kipulogindashboardam25145387": {
+          "service": "Cognito",
+          "providerPlugin": "awscloudformation",
+          "provider": "awscloudformation",
+          "userPoolId": "us-east-1_4LqXhppJy",
+          "userPoolName": "user-management-api-dev",
+          "region": "us-east-1",
+          "cognitoArn": "arn:aws:cognito-idp:us-east-1:633233947399:userpool/us-east-1_4LqXhppJy",
+          "cognitoClientId": "3vv208bbunc14ubjf5q4avaf8p"
+        }
       }
     }
   }
