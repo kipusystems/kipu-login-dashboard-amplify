@@ -59,19 +59,6 @@
       "StackName": "amplify-kipulogindashboardam-develop-233844",
       "StackId": "arn:aws:cloudformation:us-east-1:060255825268:stack/amplify-kipulogindashboardam-develop-233844/6d3567b0-ccca-11ed-8608-122ec804057b",
       "AmplifyAppId": "d32tghxom9ky1u"
-    },
-    "categories": {
-      "auth": {
-        "kipulogindashboardam25145387": {
-          "AppClientID": "4m325qup2g1tsf8ij8gcbqus4h",
-          "AppClientIDWeb": "17st0257qni4fcfnr5nhhst2mc",
-          "IdentityPoolId": "us-east-1:9f5cfabd-de6f-46ae-a917-347345979abb",
-          "IdentityPoolName": "kipulogindashboardam25145387_identitypool_25145387__develop",
-          "UserPoolArn": "arn:aws:cognito-idp:us-east-1:060255825268:userpool/us-east-1_JxD8JAQ6K",
-          "UserPoolId": "us-east-1_JxD8JAQ6K",
-          "UserPoolName": "kipulogindashboardam25145387_userpool_25145387-develop"
-        }
-      }
     }
   }
 }
