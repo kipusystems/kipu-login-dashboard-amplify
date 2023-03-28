@@ -63,14 +63,13 @@
     "categories": {
       "auth": {
         "kipulogindashboardam25145387": {
-          "service": "Cognito",
-          "providerPlugin": "awscloudformation",
-          "provider": "awscloudformation",
-          "userPoolId": "us-east-1_JxD8JAQ6K",
-          "userPoolName": "kipulogindashboardam25145387_userpool_25145387-develop",
-          "region": "us-east-1",
-          "cognitoArn": "arn:aws:cognito-idp:us-east-1:060255825268:userpool/us-east-1_JxD8JAQ6K",
-          "cognitoClientId": "4m325qup2g1tsf8ij8gcbqus4h"
+          "AppClientID": "4m325qup2g1tsf8ij8gcbqus4h",
+          "AppClientIDWeb": "17st0257qni4fcfnr5nhhst2mc",
+          "IdentityPoolId": "us-east-1:9f5cfabd-de6f-46ae-a917-347345979abb",
+          "IdentityPoolName": "kipulogindashboardam25145387_identitypool_25145387__develop",
+          "UserPoolArn": "arn:aws:cognito-idp:us-east-1:060255825268:userpool/us-east-1_JxD8JAQ6K",
+          "UserPoolId": "us-east-1_JxD8JAQ6K",
+          "UserPoolName": "kipulogindashboardam25145387_userpool_25145387-develop"
         }
       }
     }
