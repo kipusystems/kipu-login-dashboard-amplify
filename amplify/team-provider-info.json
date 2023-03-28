@@ -59,6 +59,11 @@
       "StackName": "amplify-kipulogindashboardam-develop-233844",
       "StackId": "arn:aws:cloudformation:us-east-1:060255825268:stack/amplify-kipulogindashboardam-develop-233844/6d3567b0-ccca-11ed-8608-122ec804057b",
       "AmplifyAppId": "d32tghxom9ky1u"
+    },
+    "categories": {
+      "auth": {
+        "kipulogindashboardam25145387": {}
+      }
     }
   }
 }
