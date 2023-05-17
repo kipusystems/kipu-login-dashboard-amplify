@@ -65,15 +65,23 @@ function App(){
     });
   };
 
+  function getDomain() {
+    var url = window.location.origin.replace(/(https?:\/\/)?(www.)?/i, '');
+    url = url.split('.');
+    url = url.slice(url.length - 2).join('.');
+    return url;
+  }
+  
   function setCookie(id, value){
-    let cookie = `${id}=${value};`
+    let domain = getDomain()
+    let cookie = `${id}=${value}; domain=${domain}`
     document.cookie = cookie;
   }
 
   function deleteCookies(){
-    document.cookie = "KIPU_SSO_ID_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
-    document.cookie = "KIPU_SSO_ACCES_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
-    document.cookie = "KIPU_SSO_REFRESH_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+    document.cookie = "KIPU_SSO_ID_TOKEN=; max-age=0";
+    document.cookie = "KIPU_SSO_ACCES_TOKEN=; max-age=0";
+    document.cookie = "KIPU_SSO_REFRESH_TOKEN=; Max-Age=0";
   }
 
   function assignCookies(data){
