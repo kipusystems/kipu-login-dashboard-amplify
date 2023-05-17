@@ -2,7 +2,7 @@ import Header from './Header'
 
 function CardList(props){
 
-  props.accounts.push({account_id: 'kipu-12244', account_name: 'Dashboard Single', account_url: 'https://t-logindashboard-single.kipuworks.com', account_type: 'emr'}, {account_id: 'kipu-12245', account_name: 'Dashboard Master', account_url: 'https://t-logindashboard-master.kipuworks.com', account_type: 'emr'})
+  props.accounts.push({account_id: 'kipu-111222111', account_name: 'Kipu Dev EMR', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'})
   var accountCards = props.accounts.map(function(acct){
     return(
       <div data-test="card-list" className="tw-flex tw-flex-col tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-full tw-cursor-pointer tw-my-4 tw-relative" widthoption="large" aligncontent="left" key={acct.account_id}>
