@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start --max-http-header-size=50000",
-    "build": "react-scripts build",
+    "build": "react-scripts build --max-http-header-size=50000",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
