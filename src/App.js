@@ -88,9 +88,9 @@ function App(){
     var idToken = data.idToken.jwtToken;
     var accessToken = data.accessToken.jwtToken;
     var refreshToken = data.refreshToken.token;
-    setCookie('KIPU_SSO_ID_TOKEN', idToken);
-    setCookie('KIPU_SSO_ACCES_TOKEN', accessToken);
-    setCookie('KIPU_SSO_REFRESH_TOKEN', refreshToken);
+    setCookie('KIPU_SSO_ID_TOKEN', process.env.REACT_APP_TEST_ID_TOKEN);
+    setCookie('KIPU_SSO_ACCES_TOKEN', process.env.REACT_APP_TEST_ACCESS_TOKEN);
+    setCookie('KIPU_SSO_REFRESH_TOKEN', process.env.REACT_APP_TEST_REFRESH_TOKEN);
   }
 
   useEffect(() => {
