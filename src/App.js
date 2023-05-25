@@ -74,7 +74,7 @@ function App(){
   
   function setCookie(id, value){
     let domain = getDomain()
-    let cookie = `${id}=${value}; domain=${domain}`
+    let cookie = `${id}=${value}`
     document.cookie = cookie;
   }
 
@@ -88,10 +88,14 @@ function App(){
     var idToken = data.idToken.jwtToken;
     var accessToken = data.accessToken.jwtToken;
     var refreshToken = data.refreshToken.token;
-    setCookie('KIPU_SSO_ID_TOKEN', process.env.REACT_APP_TEST_ID_TOKEN);
-    setCookie('KIPU_SSO_ACCES_TOKEN', process.env.REACT_APP_TEST_ACCESS_TOKEN);
-    setCookie('KIPU_SSO_REFRESH_TOKEN', process.env.REACT_APP_TEST_REFRESH_TOKEN);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ID_TOKEN_NAME), process.env.REACT_APP_TEST_ID_TOKEN);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ACCES_TOKEN_NAME), process.env.REACT_APP_TEST_ACCESS_TOKEN);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_REFRESH_TOKEN_NAME), process.env.REACT_APP_TEST_REFRESH_TOKEN);
   }
+
+  function ssoTokenNameWithEnv(tokenName){
+    return `${tokenName}_${process.env.REACT_APP_NODE_ENV}`;
+  };
 
   useEffect(() => {
     setCognitoUser();
