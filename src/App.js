@@ -74,14 +74,28 @@ function App(){
   
   function setCookie(id, value){
     let domain = getDomain()
-    let cookie = `${id}=${value}`
+    let cookie = `${id}=${value}; domain=${domain}`
     document.cookie = cookie;
   }
-
+  
   function deleteCookies(){
-    document.cookie = "KIPU_SSO_ID_TOKEN=; max-age=0";
-    document.cookie = "KIPU_SSO_ACCES_TOKEN=; max-age=0";
-    document.cookie = "KIPU_SSO_REFRESH_TOKEN=; Max-Age=0";
+    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ID_TOKEN_NAME)}=; max-age=0`;
+    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ACCES_TOKEN_NAME)}=; max-age=0`;
+    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_REFRESH_TOKEN_NAME)}=; Max-Age=0`;
+  }
+
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++){
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      deleteCookie(name);
+    }
+  }
+
+  function deleteCookie(name) {
+    document.cookie = name + '=; Max-Age=0';
   }
 
   function assignCookies(data){
