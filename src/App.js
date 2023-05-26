@@ -29,7 +29,7 @@ function App(){
   });
 
   function signOut(){
-    deleteCookies()
+    deleteAllCookies()
     dispatch(resetUser());
     dispatch(resetAccounts());
     dispatch(resetQueryResult());
@@ -76,12 +76,6 @@ function App(){
     let domain = getDomain()
     let cookie = `${id}=${value}; domain=${domain}`
     document.cookie = cookie;
-  }
-  
-  function deleteCookies(){
-    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ID_TOKEN_NAME)}=; max-age=0`;
-    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ACCES_TOKEN_NAME)}=; max-age=0`;
-    document.cookie = `${ssoTokenNameWithEnv(process.env.REACT_APP_REFRESH_TOKEN_NAME)}=; Max-Age=0`;
   }
 
   function deleteAllCookies() {
