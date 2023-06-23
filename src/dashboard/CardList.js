@@ -2,7 +2,15 @@ import Header from './Header'
 
 function CardList(props){
 
-  props.accounts.push({account_id: 'kipu-111222111', account_name: 'Kipu Dev EMR', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'})
+  const hdDashInstances = [
+    {account_id: 'kipu-111222111', account_name: 'Kipu Dash', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'},
+    {account_id: 'kipu-222222222', account_name: 'Kipu Dash 1', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'},
+    {account_id: 'kipu-333222333', account_name: 'Kipu Dash 2', account_url: 'https://hm2-dash.kipu.dev/', account_type: 'emr'},
+    {account_id: 'kipu-444222444', account_name: 'Kipu Dash 3', account_url: 'https://hm3-dash.kipu.dev/', account_type: 'emr'},
+    {account_id: 'kipu-555222555', account_name: 'Kipu Dash 4', account_url: 'https://hm4-dash.kipu.dev/', account_type: 'emr'}
+  ]
+
+  props.accounts.push(...hdDashInstances)
   var accountCards = props.accounts.map(function(acct){
     return(
       <div data-test="card-list" className="tw-flex tw-flex-col tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-w-full tw-cursor-pointer tw-my-4 tw-relative" widthoption="large" aligncontent="left" key={acct.account_id}>
