@@ -3,7 +3,7 @@ import Header from './Header'
 function CardList(props){
 
   const hdDashInstances = [
-    {account_id: 'kipu-111222111', account_name: 'Kipu Dash', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'},
+    {account_id: 'kipu-111222111', account_name: 'Kipu Dash', account_url: 'https://hm-dash.kipu.dev/', account_type: 'emr'},
     {account_id: 'kipu-222222222', account_name: 'Kipu Dash 1', account_url: 'https://hm1-dash.kipu.dev/', account_type: 'emr'},
     {account_id: 'kipu-333222333', account_name: 'Kipu Dash 2', account_url: 'https://hm2-dash.kipu.dev/', account_type: 'emr'},
     {account_id: 'kipu-444222444', account_name: 'Kipu Dash 3', account_url: 'https://hm3-dash.kipu.dev/', account_type: 'emr'},
