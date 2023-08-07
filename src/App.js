@@ -96,9 +96,9 @@ function App(){
     var idToken = data.idToken.jwtToken;
     var accessToken = data.accessToken.jwtToken;
     var refreshToken = data.refreshToken.token;
-    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ID_TOKEN_NAME), process.env.REACT_APP_TEST_ID_TOKEN);
-    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ACCES_TOKEN_NAME), process.env.REACT_APP_TEST_ACCESS_TOKEN);
-    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_REFRESH_TOKEN_NAME), process.env.REACT_APP_TEST_REFRESH_TOKEN);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ID_TOKEN_NAME), idToken);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_SSO_ACCES_TOKEN_NAME), accessToken);
+    setCookie(ssoTokenNameWithEnv(process.env.REACT_APP_REFRESH_TOKEN_NAME), refreshToken);
   }
 
   function ssoTokenNameWithEnv(tokenName){
