@@ -1,19 +1,19 @@
 {
-  "master": {
+  "develop": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-logindashboard-master-181440-authRole",
-      "UnauthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-master-181440-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-master-181440-authRole",
+      "AuthRoleName": "amplify-logindashboard-develop-182818-authRole",
+      "UnauthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-develop-182818-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-develop-182818-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-logindashboard-master-181440-deployment",
-      "UnauthRoleName": "amplify-logindashboard-master-181440-unauthRole",
-      "StackName": "amplify-logindashboard-master-181440",
-      "StackId": "arn:aws:cloudformation:us-east-1:521386070254:stack/amplify-logindashboard-master-181440/f9ac9650-3638-11ee-8cb8-12b287eedf6d",
-      "AmplifyAppId": "d3bqn8pdtsnf8r"
+      "DeploymentBucketName": "amplify-logindashboard-develop-182818-deployment",
+      "UnauthRoleName": "amplify-logindashboard-develop-182818-unauthRole",
+      "StackName": "amplify-logindashboard-develop-182818",
+      "StackId": "arn:aws:cloudformation:us-east-1:521386070254:stack/amplify-logindashboard-develop-182818/e13fc540-363a-11ee-9d01-0e9915f7878f",
+      "AmplifyAppId": "d1hz0fbwmuql5z"
     },
     "categories": {
       "auth": {
-        "logindashboard968fe54b": {
+        "logindashboard8a8cb9fe": {
           "userPoolId": "us-east-1_znIskIILj",
           "userPoolName": "kipu-default-user-pool",
           "webClientId": "7825qs9tvquvm22ndl0qmsrcfb",
