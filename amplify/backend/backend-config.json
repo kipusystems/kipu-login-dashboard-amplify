@@ -1,6 +1,6 @@
 {
   "auth": {
-    "logindashboard8a8cb9fe": {
+    "logindashboard1bb3c053": {
       "customAuth": false,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -9,35 +9,35 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_logindashboard8a8cb9fe_nativeClientId": {
+    "AMPLIFY_auth_logindashboard1bb3c053_nativeClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "logindashboard8a8cb9fe"
+          "resourceName": "logindashboard1bb3c053"
         }
       ]
     },
-    "AMPLIFY_auth_logindashboard8a8cb9fe_userPoolId": {
+    "AMPLIFY_auth_logindashboard1bb3c053_userPoolId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "logindashboard8a8cb9fe"
+          "resourceName": "logindashboard1bb3c053"
         }
       ]
     },
-    "AMPLIFY_auth_logindashboard8a8cb9fe_userPoolName": {
+    "AMPLIFY_auth_logindashboard1bb3c053_userPoolName": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "logindashboard8a8cb9fe"
+          "resourceName": "logindashboard1bb3c053"
         }
       ]
     },
-    "AMPLIFY_auth_logindashboard8a8cb9fe_webClientId": {
+    "AMPLIFY_auth_logindashboard1bb3c053_webClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "logindashboard8a8cb9fe"
+          "resourceName": "logindashboard1bb3c053"
         }
       ]
     }
