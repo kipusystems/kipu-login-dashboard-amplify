@@ -23,11 +23,19 @@ function imageBlocked(){
 function Landing() {
 
   return (
-    <div className="tw-py-16 lg:tw-py-32 tw-mx-2 lg:tw-mx-12 tw-flex lg:tw-space-between tw-divide-x">
+    // <div className="tw-py-16 lg:tw-py-32 tw-mx-2 lg:tw-mx-12 tw-flex lg:tw-space-between tw-divide-x">
+    <div className="
+          tw-py-16 
+          md:tw-py-32 
+          tw-mx-2 
+          md:tw-mx-12 
+          tw-flex 
+          lg:tw-space-between 
+          tw-divide-x"
+      >
       <Signin/>
-      <div className="mob-to-hide login-center tw-w-1/2 col-sm-12 col-md-6">
+      <div className="mob-to-hide md:tw-hidden xl:tw-block login-center tw-w-1/2 col-sm-12 col-md-6">
         <div id="mob-to-hide-img">
-          {/* Need to capture cookies from the browser that may hold the kipu_user_roles */}
           <ins className={`zone3 ${imageBlocked()}`} id="zone3" data-revive-zoneid="1" data-revive-id="1dfaae5996a6ccb7c316ad36d44cc0f2" data-revive-kipuversion={process.env.REACT_APP_KIPU_VERSION} data-revive-kipuroles={getCookie('kipu_user_roles')}>
             <a href="//kipuhealth.com">
               <img alt="" className="tw-mx-auto zone-image" src={randomImage()} />
