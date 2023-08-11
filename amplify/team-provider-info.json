@@ -1,4 +1,50 @@
 {
+  "lorene": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-logindashboard-lorene-222220-authRole",
+      "UnauthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-lorene-222220-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-lorene-222220-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-logindashboard-lorene-222220-deployment",
+      "UnauthRoleName": "amplify-logindashboard-lorene-222220-unauthRole",
+      "StackName": "amplify-logindashboard-lorene-222220",
+      "StackId": "arn:aws:cloudformation:us-east-1:521386070254:stack/amplify-logindashboard-lorene-222220/35461900-3703-11ee-8e70-0abd8e1129a9",
+      "AmplifyAppId": "d2cumvums9san1"
+    },
+    "categories": {
+      "auth": {
+        "logindashboard1bb3c053": {
+          "userPoolId": "us-east-1_znIskIILj",
+          "userPoolName": "kipu-default-user-pool",
+          "webClientId": "7825qs9tvquvm22ndl0qmsrcfb",
+          "nativeClientId": "6nculhoj638qtn6nrbflfgt43v"
+        }
+      }
+    }
+  },
+  "angy": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-logindashboard-angy-222643-authRole",
+      "UnauthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-angy-222643-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::521386070254:role/amplify-logindashboard-angy-222643-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-logindashboard-angy-222643-deployment",
+      "UnauthRoleName": "amplify-logindashboard-angy-222643-unauthRole",
+      "StackName": "amplify-logindashboard-angy-222643",
+      "StackId": "arn:aws:cloudformation:us-east-1:521386070254:stack/amplify-logindashboard-angy-222643/d1dd87d0-3703-11ee-b31b-0ec2ff95ba35",
+      "AmplifyAppId": "d2cumvums9san1"
+    },
+    "categories": {
+      "auth": {
+        "logindashboardff1b5822": {
+          "userPoolId": "us-east-1_znIskIILj",
+          "userPoolName": "kipu-default-user-pool",
+          "webClientId": "7825qs9tvquvm22ndl0qmsrcfb",
+          "nativeClientId": "6nculhoj638qtn6nrbflfgt43v"
+        }
+      }
+    }
+  },
   "develop": {
     "awscloudformation": {
       "AuthRoleName": "amplify-logindashboard-develop-122843-authRole",
